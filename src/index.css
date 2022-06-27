@@ -13,6 +13,8 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: #525461;
+  display: flex;
 }
 
 input,
@@ -35,4 +37,10 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+#root {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
 }
