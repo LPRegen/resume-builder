@@ -66,11 +66,11 @@ const StyledNavLink = styled(NavLink)`
   z-index: 9;
 
   :hover {
-    color: ${colors.active};
+    color: ${colors.primaryText};
   }
 
   &.active {
-    color: ${colors.active};
+    color: ${colors.primaryText};
   }
 
   &.active:before {
