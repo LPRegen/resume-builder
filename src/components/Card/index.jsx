@@ -6,7 +6,7 @@ import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
 import Label from './Label';
-import Button from './ButtonSection';
+import Button from './ButtonPages';
 import Wrapper from './Wrapper';
 
 const Card = styled.div`

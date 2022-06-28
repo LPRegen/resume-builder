@@ -31,6 +31,10 @@ export default class Information extends Component {
           <Card.Label labelTitle="Profile">
             <Card.TextArea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend augue quis dui rhoncus molestie. Donec eget varius dolor. Praesent." />
           </Card.Label>
+          <Card.Wrapper>
+            <Card.Button buttonText="Work" direction="previous" />
+            <Card.Button buttonText="Skills" direction="next" />
+          </Card.Wrapper>
         </Card.Form>
       </Card>
     );
