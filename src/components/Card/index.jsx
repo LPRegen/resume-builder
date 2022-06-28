@@ -6,6 +6,8 @@ import Form from './Form';
 import Input from './Input';
 import TextArea from './TextArea';
 import Label from './Label';
+import Button from './ButtonSection';
+import Wrapper from './Wrapper';
 
 const Card = styled.div`
   display: flex;
@@ -22,5 +24,7 @@ Card.Label = Label;
 Card.Form = Form;
 Card.Input = Input;
 Card.TextArea = TextArea;
+Card.Button = Button;
+Card.Wrapper = Wrapper;
 
 export default Card;
