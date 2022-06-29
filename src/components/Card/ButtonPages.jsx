@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { colors } from '../theme';
 
+import { Link } from 'react-router-dom';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 
 export default class Button extends Component {
   render() {
+    const path = this.props.path;
+
     return (
-      <StyledButton type="button" direction={this.props.direction}>
-        {this.props.direction === 'previous' && <IconPrev />}
-        {this.props.buttonText}
-        {this.props.direction === 'next' && <IconNext />}
-      </StyledButton>
+      <StyledLink to={`${path}`}>
+        <StyledButton type="button" direction={this.props.direction}>
+          {this.props.direction === 'previous' && <IconPrev />}
+          {this.props.buttonText}
+          {this.props.direction === 'next' && <IconNext />}
+        </StyledButton>
+      </StyledLink>
     );
   }
 }
@@ -37,4 +42,8 @@ const IconNext = styled(MdArrowForwardIos)`
 
 const IconPrev = styled(MdArrowBackIos)`
   color: ${colors.primaryText};
+`;
+
+const StyledLink = styled(Link)`
+  all: unset;
 `;
