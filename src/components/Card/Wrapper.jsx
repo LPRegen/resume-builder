@@ -10,5 +10,5 @@ export default class Wrapper extends Component {
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4rem 0;
+  margin-top: 2.5rem;
 `;
