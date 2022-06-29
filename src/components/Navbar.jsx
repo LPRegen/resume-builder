@@ -59,6 +59,7 @@ const NavigationBar = styled.nav`
   font-size: 2rem;
   border-radius: 10px 0 0 10px;
   height: 100%;
+  min-height: 740px;
 `;
 
 const StyledNavLink = styled(NavLink)`
