@@ -24,10 +24,10 @@ export default class Button extends Component {
 const StyledButton = styled.button`
   all: unset;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  padding: 0.8rem 0.5rem;
+  padding: 0.8rem 0.3rem;
   background-color: ${colors.bgSecondary};
   color: ${colors.primaryText};
   border-radius: 20px;
