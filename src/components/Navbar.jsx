@@ -57,9 +57,11 @@ const NavigationBar = styled.nav`
   align-items: center;
   gap: 2rem;
   font-size: 2rem;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px 0 0 0px;
   height: 100%;
   min-height: 740px;
+  position: absolute;
+  right: 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
