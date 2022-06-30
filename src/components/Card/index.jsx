@@ -16,8 +16,7 @@ const Card = styled.div`
   background-color: ${colors.bgPrimary};
   border-radius: 10px;
   padding: 1rem 1rem 1.5rem 1rem;
-  height: 100%;
-  min-height: 730px;
+  height: fit-content;
 `;
 
 Card.Title = Title;
