@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 export default class Wrapper extends Component {
   render() {
-    return <StyledDiv>{this.props.children}</StyledDiv>;
+    return (
+      <StyledDiv primary={this.props.primary}>{this.props.children}</StyledDiv>
+    );
   }
 }
 
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 2.5rem;
+  margin-top: ${(props) => (props.primary ? '2.5rem' : '1.5rem')};
 `;
