@@ -6,6 +6,8 @@ import Contact from './Contact';
 import Education from './Education';
 import Work from './Work';
 import Skills from './Skills';
+import Languages from './Languages';
+import Preview from './Preview';
 
 export default class Pages extends Component {
   render() {
@@ -16,6 +18,8 @@ export default class Pages extends Component {
         <Route path="/education" element={<Education />} />
         <Route path="/work" element={<Work />} />
         <Route path="/skills" element={<Skills />} />
+        <Route path="/languages" element={<Languages />} />
+        <Route path="/preview" element={<Preview />} />
       </Routes>
     );
   }
