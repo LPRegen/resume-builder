@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 export default class Form extends Component {
   render() {
-    return <StyledForm>{this.props.children}</StyledForm>;
+    return (
+      <StyledForm onSubmit={this.props.handleSubmit}>
+        {this.props.children}
+      </StyledForm>
+    );
   }
 }
 
