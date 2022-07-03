@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-
 import Card from '../Card';
+import { withRouter } from '../../utils/withRouter';
 
-export default class Contact extends Component {
+class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.navigate('/education');
+  }
+
   render() {
     return (
       <Card>
         <Card.Title title="Contact" />
-        <Card.Form>
+        <Card.Form handleSubmit={this.handleSubmit}>
           <Card.Label labelTitle="Website">
             <Card.Input
               inputType="text"
@@ -36,13 +46,15 @@ export default class Contact extends Component {
               inputName="phone"
             />
           </Card.Label>
-          <Card.Wrapper>
+          <Card.Wrapper primary>
             <Card.Button
+              buttonType="button"
               buttonText="Information"
               direction="previous"
               path="/information"
             />
             <Card.Button
+              buttonType="submit"
               buttonText="Education"
               direction="next"
               path="/education"
@@ -53,3 +65,5 @@ export default class Contact extends Component {
     );
   }
 }
+
+export default withRouter(Contact);
