@@ -17,30 +17,29 @@ class Information extends Component {
     return (
       <Card>
         <Card.Title title="Information" />
-        <Card.Form handleSubmit={this.handleSubmit}>
+        <Card.Form handleSubmit={this.props.handleSubmit}>
           <Card.Label labelTitle="First name">
-            <Card.Input
-              inputType="text"
-              placeholder="Liam"
-              inputName="first-name"
-            />
+            <Card.Input inputType="text" placeholder="Liam" inputName="first" />
           </Card.Label>
           <Card.Label labelTitle="Last name">
             <Card.Input
               inputType="text"
               placeholder="Anderson"
-              inputName="last-name"
+              inputName="last"
             />
           </Card.Label>
           <Card.Label labelTitle="Professional title">
             <Card.Input
               inputType="text"
               placeholder="Software Engineer"
-              inputName="professional-title"
+              inputName="title"
             />
           </Card.Label>
           <Card.Label labelTitle="Profile">
-            <Card.TextArea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend augue quis dui rhoncus molestie. Donec eget varius dolor. Praesent." />
+            <Card.TextArea
+              name="profile"
+              placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend augue quis dui rhoncus molestie. Donec eget varius dolor. Praesent."
+            />
           </Card.Label>
           <Card.Wrapper primary>
             <Card.Button
