@@ -1,50 +1,35 @@
 import React, { Component } from 'react';
 import Card from '../Card';
-import { withRouter } from '../../utils/withRouter';
 
-class Work extends Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.navigate('/skills');
-  }
-
+export default class Work extends Component {
   render() {
     return (
       <Card>
         <Card.Title title="Work" />
-        <Card.Form handleSubmit={this.handleSubmit}>
+        <Card.Form handleSubmit={this.props.handleSubmit}>
           <Card.Label labelTitle="Title">
             <Card.Input
               inputType="text"
               placeholder="Software developer"
-              inputName="work-title"
+              inputName="title"
             />
           </Card.Label>
           <Card.Label labelTitle="Company">
             <Card.Input
               inputType="text"
               placeholder="The Home Depot"
-              inputName="work-company"
+              inputName="company"
             />
           </Card.Label>
           <Card.Label labelTitle="From">
             <Card.Input
               inputType="number"
               placeholder="2018"
-              inputName="work-from"
+              inputName="from"
             />
           </Card.Label>
           <Card.Label labelTitle="To">
-            <Card.Input
-              inputType="number"
-              placeholder="2020"
-              inputName="work-to"
-            />
+            <Card.Input inputType="number" placeholder="2020" inputName="to" />
           </Card.Label>
           <Card.Wrapper>
             <Card.ButtonAdd direction="previous" text="Previous" />
@@ -69,5 +54,3 @@ class Work extends Component {
     );
   }
 }
-
-export default withRouter(Work);

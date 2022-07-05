@@ -3,21 +3,11 @@ import Card from '../Card';
 import { withRouter } from '../../utils/withRouter';
 
 class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.navigate('/education');
-  }
-
   render() {
     return (
       <Card>
         <Card.Title title="Contact" />
-        <Card.Form handleSubmit={this.handleSubmit}>
+        <Card.Form handleSubmit={this.props.handleSubmit}>
           <Card.Label labelTitle="Website">
             <Card.Input
               inputType="text"

@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../Card';
-import { withRouter } from '../../utils/withRouter';
 
-class Information extends Component {
-  constructor(props) {
-    super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.navigate('/contact');
-  }
-
+export default class Information extends Component {
   render() {
     return (
       <Card>
@@ -54,5 +43,3 @@ class Information extends Component {
     );
   }
 }
-
-export default withRouter(Information);
