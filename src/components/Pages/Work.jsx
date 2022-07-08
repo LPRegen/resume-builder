@@ -23,13 +23,13 @@ export default class Work extends Component {
           </Card.Label>
           <Card.Label labelTitle="From">
             <Card.Input
-              inputType="number"
-              placeholder="2018"
+              inputType="text"
+              placeholder="07/2018"
               inputName="from"
             />
           </Card.Label>
           <Card.Label labelTitle="To">
-            <Card.Input inputType="number" placeholder="2020" inputName="to" />
+            <Card.Input inputType="text" placeholder="12/2020" inputName="to" />
           </Card.Label>
           <Card.Wrapper>
             <Card.ButtonAdd direction="previous" text="Previous" />

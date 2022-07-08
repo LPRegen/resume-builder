@@ -23,13 +23,13 @@ export default class Education extends Component {
           </Card.Label>
           <Card.Label labelTitle="From">
             <Card.Input
-              inputType="number"
-              placeholder="2010"
+              inputType="text"
+              placeholder="06/2010"
               inputName="from"
             />
           </Card.Label>
           <Card.Label labelTitle="To">
-            <Card.Input inputType="number" placeholder="2014" inputName="to" />
+            <Card.Input inputType="text" placeholder="12/2014" inputName="to" />
           </Card.Label>
           <Card.Wrapper>
             <Card.ButtonAdd direction="previous" text="Previous" />
