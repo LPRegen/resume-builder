@@ -8,7 +8,7 @@ export default class Skills extends Component {
     return (
       <StyledDiv>
         <StyledInput type="text" placeholder={this.props.placeholder} />
-        <StyledButton>
+        <StyledButton type="button">
           <MdDeleteForever />
         </StyledButton>
       </StyledDiv>
