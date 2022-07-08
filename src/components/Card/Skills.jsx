@@ -6,17 +6,21 @@ import { MdDeleteForever } from 'react-icons/md';
 export default class Skills extends Component {
   render() {
     return (
-      <StyledDiv>
-        <StyledInput type="text" placeholder={this.props.placeholder} />
+      <StyledLabel>
+        <StyledInput
+          type="text"
+          placeholder={this.props.placeholder}
+          name={this.props.inputName}
+        />
         <StyledButton type="button">
           <MdDeleteForever />
         </StyledButton>
-      </StyledDiv>
+      </StyledLabel>
     );
   }
 }
 
-const StyledDiv = styled.div`
+const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
