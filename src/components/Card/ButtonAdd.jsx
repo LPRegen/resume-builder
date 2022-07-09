@@ -4,19 +4,19 @@ import { colors } from '../theme';
 import { MdExposurePlus1, MdArrowBackIos } from 'react-icons/md';
 
 export default class ButtonAdd extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      display: false,
-    };
-  }
-
   render() {
     return (
-      <StyledButton type="button" direction={this.props.direction}>
-        {this.props.direction === 'previous' && <IconPrev />}
+      <StyledButton
+        primary={this.props.primary}
+        type="button"
+        direction={this.props.direction}
+        onClick={this.props.onClick}
+      >
+        {this.props.direction === 'previous' && (
+          <IconPrev direction="previous" />
+        )}
         {this.props.text}
-        {this.props.direction === 'next' && <IconAdd />}
+        {this.props.direction === 'next' && <IconAdd direction="next" />}
       </StyledButton>
     );
   }
@@ -34,6 +34,11 @@ const StyledButton = styled.button`
   padding: 0.5rem 0.5rem;
   min-width: 100px;
   border-radius: 10px;
+  margin-left: ${(props) => (props.primary ? 'auto' : 'none')};
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 const IconAdd = styled(MdExposurePlus1)`
