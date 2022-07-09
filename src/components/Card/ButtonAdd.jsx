@@ -44,8 +44,10 @@ const StyledButton = styled.button`
 const IconAdd = styled(MdExposurePlus1)`
   color: ${colors.primaryText};
   font-size: 1.2rem;
+  pointer-events: none;
 `;
 
 const IconPrev = styled(MdArrowBackIos)`
   color: ${colors.primaryText};
+  pointer-events: none;
 `;
