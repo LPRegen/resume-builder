@@ -3,6 +3,8 @@ import Card from '../Card';
 
 export default class Education extends Component {
   render() {
+    let currentExperience = this.props.currentExperience;
+
     return (
       <Card>
         <Card.Title title="Education" />
@@ -32,8 +34,21 @@ export default class Education extends Component {
             <Card.Input inputType="text" placeholder="12/2014" inputName="to" />
           </Card.Label>
           <Card.Wrapper>
-            <Card.ButtonAdd direction="previous" text="Previous" />
-            <Card.ButtonAdd direction="next" text="Add" />
+            {currentExperience > 0 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {currentExperience < 2 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text="Add"
+                onClick={this.props.onClick}
+              />
+            )}
           </Card.Wrapper>
           <Card.Wrapper primary>
             <Card.Button
