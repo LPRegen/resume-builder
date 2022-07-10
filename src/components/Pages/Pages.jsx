@@ -29,19 +29,19 @@ class Pages extends Component {
       education: {
         currentExperience: 0,
         experience0: {
-          degree: 'experience0',
+          degree: '',
           university: '',
           from: '',
           to: '',
         },
         experience1: {
-          degree: 'experience1',
+          degree: '',
           university: '',
           from: '',
           to: '',
         },
         experience2: {
-          degree: 'experience2',
+          degree: '',
           university: '',
           from: '',
           to: '',
@@ -87,9 +87,26 @@ class Pages extends Component {
   }
 
   updateState = (e, updateStateOf) => {
-    if (updateStateOf === ('education' || 'work')) {
+    let stateObj = JSON.parse(JSON.stringify({ ...this.state[updateStateOf] }));
+
+    if (updateStateOf === 'education' || updateStateOf === 'work') {
+      let currentExperience =
+        'experience' + this.state[updateStateOf].currentExperience;
+      let experienceState = JSON.parse(
+        JSON.stringify(stateObj[currentExperience])
+      );
+      for (let property in experienceState) {
+        experienceState[property] = e.target[property].value;
+      }
+      this.setState({
+        [updateStateOf]: {
+          ...stateObj,
+          [currentExperience]: { ...experienceState },
+        },
+      });
+      return;
     }
-    let stateObj = { ...this.state[updateStateOf] };
+
     for (let property in stateObj) {
       stateObj[property] = e.target[property].value;
     }
@@ -153,7 +170,7 @@ class Pages extends Component {
           element={
             <Education
               handleSubmit={(e) => this.handleSubmit(e, '/work', 'education')}
-              onClick={(e) => this.selectExperience(e, 'education')}
+              onClick={(e) => this.updateExperience(e, 'education')}
               currentExperience={this.state.education.currentExperience}
             />
           }
@@ -173,6 +190,7 @@ class Pages extends Component {
           element={
             <Skills
               handleSubmit={(e) => this.handleSubmit(e, '/languages', 'skills')}
+              addSkill={() => 'asd'}
             />
           }
         />
