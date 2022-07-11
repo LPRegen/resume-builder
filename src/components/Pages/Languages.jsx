@@ -3,6 +3,8 @@ import Card from '../Card';
 
 export default class Languages extends Component {
   render() {
+    let languageExperience = this.props.languages;
+
     return (
       <Card>
         <Card.Title title="Languages" />
@@ -18,8 +20,21 @@ export default class Languages extends Component {
             <Card.Input inputType="text" placeholder="B1" inputName="level" />
           </Card.Label>
           <Card.Wrapper>
-            <Card.ButtonAdd direction="previous" text="Previous" />
-            <Card.ButtonAdd direction="next" text="Add" />
+            {languageExperience > 0 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {languageExperience < 2 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text="Add"
+                onClick={this.props.onClick}
+              />
+            )}
           </Card.Wrapper>
           <Card.Wrapper>
             <Card.Button
