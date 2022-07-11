@@ -12,8 +12,8 @@ export default class Skill extends Component {
           placeholder={this.props.placeholder}
           name={this.props.inputName}
         />
-        <StyledButton type="button">
-          <MdDeleteForever />
+        <StyledButton type="button" onClick={this.props.removeSkill}>
+          <IconDelete />
         </StyledButton>
       </StyledLabel>
     );
@@ -52,4 +52,12 @@ const StyledButton = styled.button`
   padding: 0.5rem;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const IconDelete = styled(MdDeleteForever)`
+  pointer-events: none;
 `;
