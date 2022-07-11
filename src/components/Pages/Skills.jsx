@@ -15,6 +15,7 @@ export default class Skills extends Component {
                 key={index}
                 placeholder={skill.placeholder}
                 inputName={`skill${index}`}
+                removeSkill={this.props.removeSkill}
               />
             );
           })}
