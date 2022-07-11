@@ -70,8 +70,19 @@ class Pages extends Component {
       },
       skills: [{ skillValue: '', placeholder: 'Team work' }],
       languages: {
-        name: '',
-        level: '',
+        currentExperience: 0,
+        experience0: {
+          name: '',
+          level: '',
+        },
+        experience1: {
+          name: '',
+          level: '',
+        },
+        experience2: {
+          name: '',
+          level: '',
+        },
       },
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -86,7 +97,11 @@ class Pages extends Component {
   updateState = (e, updateStateOf) => {
     let stateObj = JSON.parse(JSON.stringify({ ...this.state[updateStateOf] }));
 
-    if (updateStateOf === 'education' || updateStateOf === 'work') {
+    if (
+      updateStateOf === 'education' ||
+      updateStateOf === 'work' ||
+      updateStateOf === 'languages'
+    ) {
       let currentExperience =
         'experience' + this.state[updateStateOf].currentExperience;
       let experienceState = JSON.parse(
@@ -229,6 +244,8 @@ class Pages extends Component {
               handleSubmit={(e) =>
                 this.handleSubmit(e, '/preview', 'languages')
               }
+              languages={this.state.languages.currentExperience}
+              onClick={(e) => this.updateExperience(e, 'languages')}
             />
           }
         />
