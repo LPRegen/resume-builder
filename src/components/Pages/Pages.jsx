@@ -80,6 +80,7 @@ class Pages extends Component {
     this.updateExperience = this.updateExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
+    this.handleSkillChange = this.handleSkillChange.bind(this);
   }
 
   updateState = (e, updateStateOf) => {
@@ -111,7 +112,9 @@ class Pages extends Component {
 
   handleSubmit(e, navigateTo, updateStateOf) {
     e.preventDefault();
-    this.updateState(e, updateStateOf);
+    if (updateStateOf !== 'skills') {
+      this.updateState(e, updateStateOf);
+    }
     this.props.navigate(navigateTo);
   }
 
@@ -141,7 +144,6 @@ class Pages extends Component {
   addSkill() {
     let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
     if (skillsState.length < 10) {
-      console.log(skillsState.length);
       let newSkill = { skillValue: '', placeholder: '' };
       skillsState.push(newSkill);
       this.setState({ skills: skillsState });
@@ -149,12 +151,20 @@ class Pages extends Component {
   }
 
   removeSkill(e) {
-    let skillState = JSON.parse(JSON.stringify([...this.state.skills]));
+    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
     let targetSkill = e.target.previousElementSibling
       .getAttribute('name')
       .slice(-1);
-    skillState.splice(targetSkill, 1);
-    this.setState({ skills: skillState });
+    skillsState.splice(targetSkill, 1);
+    this.setState({ skills: skillsState });
+  }
+
+  handleSkillChange(e) {
+    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
+    let newSkillValue = e.target.value;
+    let skillTarget = e.target.getAttribute('name').slice(-1);
+    skillsState[skillTarget].skillValue = newSkillValue;
+    this.setState({ skills: skillsState });
   }
 
   render() {
@@ -208,6 +218,7 @@ class Pages extends Component {
               skills={this.state.skills}
               addSkill={this.addSkill}
               removeSkill={(e) => this.removeSkill(e)}
+              handleChange={(e) => this.handleSkillChange(e)}
             />
           }
         />
