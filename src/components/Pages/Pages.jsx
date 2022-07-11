@@ -68,13 +68,7 @@ class Pages extends Component {
           to: '',
         },
       },
-      skills: {
-        skill0: '',
-        skill1: '',
-        skill2: '',
-        skill3: '',
-        skill4: '',
-      },
+      skills: [{ skillValue: '', placeholder: 'Team work' }],
       languages: {
         name: '',
         level: '',
@@ -84,6 +78,7 @@ class Pages extends Component {
     this.updateState = this.updateState.bind(this);
     this.selectExperience = this.selectExperience.bind(this);
     this.updateExperience = this.updateExperience.bind(this);
+    this.addSkill = this.addSkill.bind(this);
   }
 
   updateState = (e, updateStateOf) => {
@@ -142,6 +137,16 @@ class Pages extends Component {
     }
   }
 
+  addSkill() {
+    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
+    if (skillsState.length < 10) {
+      console.log(skillsState.length);
+      let newSkill = { skillValue: '', placeholder: '' };
+      skillsState.push(newSkill);
+      this.setState({ skills: skillsState });
+    }
+  }
+
   render() {
     return (
       <Routes>
@@ -190,7 +195,8 @@ class Pages extends Component {
           element={
             <Skills
               handleSubmit={(e) => this.handleSubmit(e, '/languages', 'skills')}
-              addSkill={() => 'asd'}
+              skills={this.state.skills}
+              addSkill={this.addSkill}
             />
           }
         />
