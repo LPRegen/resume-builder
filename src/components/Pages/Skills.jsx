@@ -3,38 +3,30 @@ import Card from '../Card';
 
 export default class Skills extends Component {
   render() {
+    let skills = this.props.skills;
+
     return (
       <Card>
         <Card.Title title="Skills" />
         <Card.Form handleSubmit={this.props.handleSubmit}>
-          <Card.Skills
-            inputType="text"
-            placeholder="Team player"
-            inputName="skill0"
-          />
-          <Card.Skills
-            inputType="text"
-            placeholder="Resilient"
-            inputName="skill1"
-          />
-          <Card.Skills
-            inputType="text"
-            placeholder="Empathetic"
-            inputName="skill2"
-          />
-          <Card.Skills
-            inputType="text"
-            placeholder="Problem solving"
-            inputName="skill3"
-          />
-          <Card.Skills
-            inputType="text"
-            placeholder="Communication"
-            inputName="skill4"
-          />
+          {skills.map((skill, index) => {
+            return (
+              <Card.Skill
+                key={index}
+                placeholder={skill.placeholder}
+                inputName={`skill${index}`}
+              />
+            );
+          })}
           <Card.Wrapper>
-            <Card.ButtonAdd direction="previous" text="Previous" />
-            <Card.ButtonAdd direction="next" text="Add" />
+            {skills.length < 10 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text="Add"
+                onClick={this.props.addSkill}
+              />
+            )}
           </Card.Wrapper>
           <Card.Wrapper primary>
             <Card.Button
