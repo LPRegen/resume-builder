@@ -3,7 +3,7 @@ import Card from '../Card';
 
 export default class Skills extends Component {
   render() {
-    let skills = this.props.skills;
+    let skills = Array.from(this.props.skills);
 
     return (
       <Card>
