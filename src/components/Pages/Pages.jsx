@@ -79,6 +79,7 @@ class Pages extends Component {
     this.selectExperience = this.selectExperience.bind(this);
     this.updateExperience = this.updateExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
+    this.removeSkill = this.removeSkill.bind(this);
   }
 
   updateState = (e, updateStateOf) => {
@@ -147,6 +148,15 @@ class Pages extends Component {
     }
   }
 
+  removeSkill(e) {
+    let skillState = JSON.parse(JSON.stringify([...this.state.skills]));
+    let targetSkill = e.target.previousElementSibling
+      .getAttribute('name')
+      .slice(-1);
+    skillState.splice(targetSkill, 1);
+    this.setState({ skills: skillState });
+  }
+
   render() {
     return (
       <Routes>
@@ -197,6 +207,7 @@ class Pages extends Component {
               handleSubmit={(e) => this.handleSubmit(e, '/languages', 'skills')}
               skills={this.state.skills}
               addSkill={this.addSkill}
+              removeSkill={(e) => this.removeSkill(e)}
             />
           }
         />
