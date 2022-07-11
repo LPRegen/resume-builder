@@ -13,9 +13,11 @@ export default class Skills extends Component {
             return (
               <Card.Skill
                 key={index}
+                value={`${skill.skillValue}`}
                 placeholder={skill.placeholder}
                 inputName={`skill${index}`}
                 removeSkill={this.props.removeSkill}
+                handleChange={this.props.handleChange}
               />
             );
           })}

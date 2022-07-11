@@ -11,6 +11,9 @@ export default class Skill extends Component {
           type="text"
           placeholder={this.props.placeholder}
           name={this.props.inputName}
+          onChange={this.props.handleChange}
+          value={this.props.value}
+          required={true}
         />
         <StyledButton type="button" onClick={this.props.removeSkill}>
           <IconDelete />
