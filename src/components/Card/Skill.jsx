@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../theme';
 import { MdDeleteForever } from 'react-icons/md';
 
-export default class Skills extends Component {
+export default class Skill extends Component {
   render() {
     return (
       <StyledLabel>
@@ -25,6 +25,7 @@ const StyledLabel = styled.label`
   justify-content: space-between;
   gap: 0.5rem;
 `;
+
 const StyledInput = styled.input`
   all: unset;
   background-color: ${colors.bgSkills};

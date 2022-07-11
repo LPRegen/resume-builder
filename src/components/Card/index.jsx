@@ -8,7 +8,7 @@ import TextArea from './TextArea';
 import Label from './Label';
 import Button from './ButtonPages';
 import Wrapper from './Wrapper';
-import Skills from './Skills';
+import Skill from './Skill';
 import ButtonAdd from './ButtonAdd';
 
 const Card = styled.div`
@@ -29,7 +29,7 @@ Card.Input = Input;
 Card.TextArea = TextArea;
 Card.Button = Button;
 Card.Wrapper = Wrapper;
-Card.Skills = Skills;
+Card.Skill = Skill;
 Card.ButtonAdd = ButtonAdd;
 
 export default Card;
