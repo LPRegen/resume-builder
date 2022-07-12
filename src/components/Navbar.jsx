@@ -18,7 +18,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <NavigationBar>
-        <StyledNavLink to="/information">
+        <StyledNavLink to="/">
           <MdPerson />
         </StyledNavLink>
         <StyledNavLink to="/contact">
@@ -39,9 +39,13 @@ export default class Navbar extends Component {
         <StyledNavLink to="/preview">
           <MdVisibility />
         </StyledNavLink>
-        <StyledNavLink to="/">
-          <VscGithubAlt />
-        </StyledNavLink>
+        <StyledAnchor
+          href="https://github.com/LPRegen"
+          target={'_blank'}
+          rel={'noreferrer'}
+        >
+          <StyleGithub />
+        </StyledAnchor>
       </NavigationBar>
     );
   }
@@ -92,5 +96,17 @@ const StyledNavLink = styled(NavLink)`
     background-color: ${colors.bgSecondary};
     z-index: -1;
     border: 2px solid ${colors.selected};
+  }
+`;
+
+const StyledAnchor = styled.a`
+  padding-top: 2rem;
+`;
+
+const StyleGithub = styled(VscGithubAlt)`
+  color: white;
+
+  :visited {
+    color: white;
   }
 `;
