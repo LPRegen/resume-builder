@@ -8,6 +8,7 @@ export default class TextArea extends Component {
       <StyledTextArea
         cols="25"
         rows="8"
+        maxLength={300}
         placeholder={this.props.placeholder}
         name={this.props.name}
         value={this.props.value}
