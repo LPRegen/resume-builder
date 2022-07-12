@@ -3,7 +3,8 @@ import Card from '../Card';
 
 export default class Work extends Component {
   render() {
-    let currentExperience = this.props.currentExperience;
+    let work = { ...this.props.workState };
+    let experience = 'experience' + work.currentExperience;
 
     return (
       <Card>
@@ -14,6 +15,8 @@ export default class Work extends Component {
               inputType="text"
               placeholder="Software developer"
               inputName="title"
+              value={work[experience].title}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="Company">
@@ -21,6 +24,8 @@ export default class Work extends Component {
               inputType="text"
               placeholder="The Home Depot"
               inputName="company"
+              value={work[experience].company}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="From">
@@ -28,20 +33,28 @@ export default class Work extends Component {
               inputType="text"
               placeholder="07/2018"
               inputName="from"
+              value={work[experience].from}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="To">
-            <Card.Input inputType="text" placeholder="12/2020" inputName="to" />
+            <Card.Input
+              inputType="text"
+              placeholder="12/2020"
+              inputName="to"
+              value={work[experience].to}
+              handleChange={this.props.handleChange}
+            />
           </Card.Label>
           <Card.Wrapper>
-            {currentExperience > 0 && (
+            {work.currentExperience > 0 && (
               <Card.ButtonAdd
                 direction="previous"
                 text="Previous"
                 onClick={this.props.onClick}
               />
             )}
-            {currentExperience < 2 && (
+            {work.currentExperience < 2 && (
               <Card.ButtonAdd
                 primary
                 direction="next"

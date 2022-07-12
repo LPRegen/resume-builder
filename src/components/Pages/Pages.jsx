@@ -248,6 +248,8 @@ class Pages extends Component {
               handleSubmit={(e) => this.handleSubmit(e, '/skills', 'work')}
               onClick={(e) => this.updateExperience(e, 'work')}
               currentExperience={this.state.work.currentExperience}
+              workState={this.state.work}
+              handleChange={(e) => this.handleChange(e, 'work')}
             />
           }
         />
