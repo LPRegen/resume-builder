@@ -215,6 +215,8 @@ class Pages extends Component {
               handleSubmit={(e) =>
                 this.handleSubmit(e, '/education', 'contact')
               }
+              contactState={this.state.contact}
+              handleChange={(e) => this.handleChange(e, 'contact')}
             />
           }
         />

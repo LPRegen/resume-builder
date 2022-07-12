@@ -4,6 +4,7 @@ import { withRouter } from '../../utils/withRouter';
 
 class Contact extends Component {
   render() {
+    let contact = { ...this.props.contactState };
     return (
       <Card>
         <Card.Title title="Contact" />
@@ -13,6 +14,8 @@ class Contact extends Component {
               inputType="text"
               placeholder="liamdevelops.com"
               inputName="website"
+              value={contact.website}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="Email">
@@ -20,6 +23,8 @@ class Contact extends Component {
               inputType="email"
               placeholder="liam.anderson@email.com"
               inputName="email"
+              value={contact.email}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="Location">
@@ -27,6 +32,8 @@ class Contact extends Component {
               inputType="text"
               placeholder="Noord, Aruba"
               inputName="location"
+              value={contact.location}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="Phone">
@@ -34,6 +41,8 @@ class Contact extends Component {
               inputType="number"
               placeholder="+549 351 5555555"
               inputName="phone"
+              value={contact.phone}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Wrapper primary>
