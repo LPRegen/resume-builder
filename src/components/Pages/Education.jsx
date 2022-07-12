@@ -3,7 +3,8 @@ import Card from '../Card';
 
 export default class Education extends Component {
   render() {
-    let currentExperience = this.props.currentExperience;
+    let education = { ...this.props.educationState };
+    let experience = 'experience' + education.currentExperience;
 
     return (
       <Card>
@@ -14,6 +15,8 @@ export default class Education extends Component {
               inputType="text"
               placeholder="Bachelor in Economics"
               inputName="degree"
+              value={education[experience].degree}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="University">
@@ -21,6 +24,8 @@ export default class Education extends Component {
               inputType="text"
               placeholder="University of Georgia"
               inputName="university"
+              value={education[experience].university}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="From">
@@ -28,20 +33,28 @@ export default class Education extends Component {
               inputType="text"
               placeholder="06/2010"
               inputName="from"
+              value={education[experience].from}
+              handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Label labelTitle="To">
-            <Card.Input inputType="text" placeholder="12/2014" inputName="to" />
+            <Card.Input
+              inputType="text"
+              placeholder="12/2014"
+              inputName="to"
+              value={education[experience].to}
+              handleChange={this.props.handleChange}
+            />
           </Card.Label>
           <Card.Wrapper>
-            {currentExperience > 0 && (
+            {education.currentExperience > 0 && (
               <Card.ButtonAdd
                 direction="previous"
                 text="Previous"
                 onClick={this.props.onClick}
               />
             )}
-            {currentExperience < 2 && (
+            {education.currentExperience < 2 && (
               <Card.ButtonAdd
                 primary
                 direction="next"

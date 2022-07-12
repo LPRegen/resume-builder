@@ -187,9 +187,18 @@ class Pages extends Component {
     let targetState = JSON.parse(
       JSON.stringify({ ...this.state[updateStateOf] })
     );
-    let newTargetValue = e.target.value;
+    let newValue = e.target.value;
     let targetValue = e.target.getAttribute('name');
-    targetState[targetValue] = newTargetValue;
+    if (updateStateOf === 'education' || updateStateOf === 'work') {
+      let experience = 'experience' + targetState.currentExperience;
+      targetState[experience] = {
+        ...targetState[experience],
+        [targetValue]: newValue,
+      };
+      this.setState({ [updateStateOf]: targetState });
+      return;
+    }
+    targetState[targetValue] = newValue;
     this.setState({ [updateStateOf]: targetState });
   }
 
@@ -227,6 +236,8 @@ class Pages extends Component {
               handleSubmit={(e) => this.handleSubmit(e, '/work', 'education')}
               onClick={(e) => this.updateExperience(e, 'education')}
               currentExperience={this.state.education.currentExperience}
+              educationState={this.state.education}
+              handleChange={(e) => this.handleChange(e, 'education')}
             />
           }
         />
