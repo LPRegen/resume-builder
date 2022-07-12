@@ -92,6 +92,7 @@ class Pages extends Component {
     this.addSkill = this.addSkill.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   updateState = (e, updateStateOf) => {
@@ -182,6 +183,16 @@ class Pages extends Component {
     this.setState({ skills: skillsState });
   }
 
+  handleChange(e, updateStateOf) {
+    let targetState = JSON.parse(
+      JSON.stringify({ ...this.state[updateStateOf] })
+    );
+    let newTargetValue = e.target.value;
+    let targetValue = e.target.getAttribute('name');
+    targetState[targetValue] = newTargetValue;
+    this.setState({ [updateStateOf]: targetState });
+  }
+
   render() {
     return (
       <Routes>
@@ -192,6 +203,8 @@ class Pages extends Component {
               handleSubmit={(e) =>
                 this.handleSubmit(e, '/contact', 'information')
               }
+              informationState={this.state.information}
+              handleChange={(e) => this.handleChange(e, 'information')}
             />
           }
         />
