@@ -10,6 +10,8 @@ export default class TextArea extends Component {
         rows="8"
         placeholder={this.props.placeholder}
         name={this.props.name}
+        value={this.props.value}
+        onChange={this.props.handleChange}
       />
     );
   }
