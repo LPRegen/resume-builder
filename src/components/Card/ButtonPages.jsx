@@ -8,23 +8,8 @@ import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
 export default class Button extends Component {
   render() {
     const path = this.props.path;
-    const buttonType = this.props.buttonType;
-
-    if (buttonType === 'button') {
-      return (
-        <StyledButton
-          type={this.props.buttonType}
-          direction={this.props.direction}
-        >
-          <StyledLink to={`${path}`}>
-            {this.props.direction === 'previous' && <IconPrev />}
-            {this.props.buttonText}
-            {this.props.direction === 'next' && <IconNext />}
-          </StyledLink>
-        </StyledButton>
-      );
-    } else {
-      return (
+    return (
+      <StyledLink to={`${path}`} primary={this.props.primary}>
         <StyledButton
           type={this.props.buttonType}
           direction={this.props.direction}
@@ -33,8 +18,8 @@ export default class Button extends Component {
           {this.props.buttonText}
           {this.props.direction === 'next' && <IconNext />}
         </StyledButton>
-      );
-    }
+      </StyledLink>
+    );
   }
 }
 
@@ -63,4 +48,5 @@ const IconPrev = styled(MdArrowBackIos)`
 
 const StyledLink = styled(Link)`
   all: unset;
+  margin-left: ${(props) => (props.primary ? 'auto' : 'none')};
 `;
