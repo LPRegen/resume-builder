@@ -189,7 +189,11 @@ class Pages extends Component {
     );
     let newValue = e.target.value;
     let targetValue = e.target.getAttribute('name');
-    if (updateStateOf === 'education' || updateStateOf === 'work') {
+    if (
+      updateStateOf === 'education' ||
+      updateStateOf === 'work' ||
+      updateStateOf === 'languages'
+    ) {
       let experience = 'experience' + targetState.currentExperience;
       targetState[experience] = {
         ...targetState[experience],
@@ -274,6 +278,8 @@ class Pages extends Component {
               }
               languages={this.state.languages.currentExperience}
               onClick={(e) => this.updateExperience(e, 'languages')}
+              languagesState={this.state.languages}
+              handleChange={(e) => this.handleChange(e, 'languages')}
             />
           }
         />
