@@ -210,7 +210,7 @@ class Pages extends Component {
     return (
       <Routes>
         <Route
-          path="/information"
+          path="/"
           element={
             <Information
               handleSubmit={(e) =>

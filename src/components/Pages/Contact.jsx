@@ -50,7 +50,7 @@ class Contact extends Component {
               buttonType="button"
               buttonText="Information"
               direction="previous"
-              path="/information"
+              path="/"
             />
             <Card.Button
               buttonType="submit"
