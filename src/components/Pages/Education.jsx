@@ -3,7 +3,7 @@ import Card from '../Card';
 
 export default class Education extends Component {
   render() {
-    let education = { ...this.props.educationState };
+    let education = [...this.props.educationState];
     let selectedExperience = education[0];
 
     return (
@@ -46,7 +46,13 @@ export default class Education extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper>
+          <Card.Wrapper wrapperType={'secondary'}>
+            <Card.ButtonDelete
+              deleteExperience={this.props.deleteExperience}
+              display={education.length > 2 ? 'true' : 'false'}
+            />
+          </Card.Wrapper>
+          <Card.Wrapper wrapperType={'terciary'}>
             {education[0] > 1 && (
               <Card.ButtonAdd
                 direction="previous"
