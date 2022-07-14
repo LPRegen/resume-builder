@@ -25,27 +25,7 @@ export default class Pages extends Component {
         location: '',
         phone: '',
       },
-      education: {
-        currentExperience: 0,
-        experience0: {
-          degree: '',
-          university: '',
-          from: '',
-          to: '',
-        },
-        experience1: {
-          degree: '',
-          university: '',
-          from: '',
-          to: '',
-        },
-        experience2: {
-          degree: '',
-          university: '',
-          from: '',
-          to: '',
-        },
-      },
+      education: [1, { degree: '', university: '', from: '', to: '' }],
       work: {
         currentExperience: 0,
         experience0: {
@@ -85,34 +65,42 @@ export default class Pages extends Component {
       },
     };
     this.selectExperience = this.selectExperience.bind(this);
-    this.updateExperience = this.updateExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.createExperience = this.createExperience.bind(this);
+  }
+
+  createExperience(updateStateOf, stateTarget) {
+    if (!stateTarget[stateTarget[0]]) {
+      let newExperience;
+      if (updateStateOf !== 'languages') {
+        newExperience = {
+          [updateStateOf === 'education' ? 'degree' : 'title']: '',
+          [updateStateOf === 'education' ? 'university' : 'company']: '',
+          from: '',
+          to: '',
+        };
+      } else {
+        newExperience = {
+          name: '',
+          level: '',
+        };
+      }
+      stateTarget.push(newExperience);
+      this.setState({ [updateStateOf]: stateTarget });
+    }
   }
 
   selectExperience(e, updateStateOf) {
-    let stateObj = { ...this.state[updateStateOf] };
-    for (let property in stateObj) {
-      if (property === 'currentExperience') {
-        let direction = e.target.getAttribute('direction');
-        direction === 'previous'
-          ? (stateObj[property] -= 1)
-          : (stateObj[property] += 1);
-      }
-    }
-    this.setState({ [updateStateOf]: stateObj });
-  }
-
-  updateExperience(e, updateStateOf) {
-    let stateObj = { ...this.state[updateStateOf] };
-    let selectedExperience = 'experience' + stateObj.currentExperience;
-    this.selectExperience(e, updateStateOf);
-    for (let property in stateObj[selectedExperience]) {
-      stateObj[selectedExperience][property] =
-        e.target.parentElement.parentElement[property].value;
-    }
+    let stateTarget = this.state[updateStateOf];
+    let direction = e.target.getAttribute('direction');
+    direction === 'previous' ? (stateTarget[0] -= 1) : (stateTarget[0] += 1);
+    this.setState(
+      { [[updateStateOf][0]]: stateTarget },
+      this.createExperience(updateStateOf, stateTarget)
+    );
   }
 
   addSkill() {
@@ -143,7 +131,7 @@ export default class Pages extends Component {
 
   handleChange(e, updateStateOf) {
     let targetState = JSON.parse(
-      JSON.stringify({ ...this.state[updateStateOf] })
+      JSON.stringify([...this.state[updateStateOf]])
     );
     let newValue = e.target.value;
     let targetValue = e.target.getAttribute('name');
@@ -152,7 +140,7 @@ export default class Pages extends Component {
       updateStateOf === 'work' ||
       updateStateOf === 'languages'
     ) {
-      let experience = 'experience' + targetState.currentExperience;
+      let experience = targetState[0];
       targetState[experience] = {
         ...targetState[experience],
         [targetValue]: newValue,
@@ -189,8 +177,7 @@ export default class Pages extends Component {
           path="/education"
           element={
             <Education
-              onClick={(e) => this.updateExperience(e, 'education')}
-              currentExperience={this.state.education.currentExperience}
+              onClick={(e) => this.selectExperience(e, 'education')}
               educationState={this.state.education}
               handleChange={(e) => this.handleChange(e, 'education')}
             />
