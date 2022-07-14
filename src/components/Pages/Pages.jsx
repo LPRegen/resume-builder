@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { withRouter } from '../../utils/withRouter';
 
 import Information from './Information';
 import Contact from './Contact';
@@ -10,7 +9,7 @@ import Skills from './Skills';
 import Languages from './Languages';
 import Preview from './Preview';
 
-class Pages extends Component {
+export default class Pages extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,53 +84,12 @@ class Pages extends Component {
         },
       },
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateState = this.updateState.bind(this);
     this.selectExperience = this.selectExperience.bind(this);
     this.updateExperience = this.updateExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  updateState = (e, updateStateOf) => {
-    let stateObj = JSON.parse(JSON.stringify({ ...this.state[updateStateOf] }));
-
-    if (
-      updateStateOf === 'education' ||
-      updateStateOf === 'work' ||
-      updateStateOf === 'languages'
-    ) {
-      let currentExperience =
-        'experience' + this.state[updateStateOf].currentExperience;
-      let experienceState = JSON.parse(
-        JSON.stringify(stateObj[currentExperience])
-      );
-      for (let property in experienceState) {
-        experienceState[property] = e.target[property].value;
-      }
-      this.setState({
-        [updateStateOf]: {
-          ...stateObj,
-          [currentExperience]: { ...experienceState },
-        },
-      });
-      return;
-    }
-
-    for (let property in stateObj) {
-      stateObj[property] = e.target[property].value;
-    }
-    this.setState({ [updateStateOf]: stateObj });
-  };
-
-  handleSubmit(e, navigateTo, updateStateOf) {
-    e.preventDefault();
-    if (updateStateOf !== 'skills') {
-      this.updateState(e, updateStateOf);
-    }
-    this.props.navigate(navigateTo);
   }
 
   selectExperience(e, updateStateOf) {
@@ -213,9 +171,6 @@ class Pages extends Component {
           path="/"
           element={
             <Information
-              handleSubmit={(e) =>
-                this.handleSubmit(e, '/contact', 'information')
-              }
               informationState={this.state.information}
               handleChange={(e) => this.handleChange(e, 'information')}
             />
@@ -225,9 +180,6 @@ class Pages extends Component {
           path="/contact"
           element={
             <Contact
-              handleSubmit={(e) =>
-                this.handleSubmit(e, '/education', 'contact')
-              }
               contactState={this.state.contact}
               handleChange={(e) => this.handleChange(e, 'contact')}
             />
@@ -237,7 +189,6 @@ class Pages extends Component {
           path="/education"
           element={
             <Education
-              handleSubmit={(e) => this.handleSubmit(e, '/work', 'education')}
               onClick={(e) => this.updateExperience(e, 'education')}
               currentExperience={this.state.education.currentExperience}
               educationState={this.state.education}
@@ -249,7 +200,6 @@ class Pages extends Component {
           path="/work"
           element={
             <Work
-              handleSubmit={(e) => this.handleSubmit(e, '/skills', 'work')}
               onClick={(e) => this.updateExperience(e, 'work')}
               currentExperience={this.state.work.currentExperience}
               workState={this.state.work}
@@ -261,7 +211,6 @@ class Pages extends Component {
           path="/skills"
           element={
             <Skills
-              handleSubmit={(e) => this.handleSubmit(e, '/languages', 'skills')}
               skills={this.state.skills}
               addSkill={this.addSkill}
               removeSkill={(e) => this.removeSkill(e)}
@@ -273,9 +222,6 @@ class Pages extends Component {
           path="/languages"
           element={
             <Languages
-              handleSubmit={(e) =>
-                this.handleSubmit(e, '/preview', 'languages')
-              }
               languages={this.state.languages.currentExperience}
               onClick={(e) => this.updateExperience(e, 'languages')}
               languagesState={this.state.languages}
@@ -288,5 +234,3 @@ class Pages extends Component {
     );
   }
 }
-
-export default withRouter(Pages);
