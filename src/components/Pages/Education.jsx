@@ -4,7 +4,7 @@ import Card from '../Card';
 export default class Education extends Component {
   render() {
     let education = { ...this.props.educationState };
-    let experience = 'experience' + education.currentExperience;
+    let selectedExperience = education[0];
 
     return (
       <Card>
@@ -15,7 +15,7 @@ export default class Education extends Component {
               inputType="text"
               placeholder="Bachelor in Economics"
               inputName="degree"
-              value={education[experience].degree}
+              value={education[selectedExperience].degree}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -24,7 +24,7 @@ export default class Education extends Component {
               inputType="text"
               placeholder="University of Georgia"
               inputName="university"
-              value={education[experience].university}
+              value={education[selectedExperience].university}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -33,7 +33,7 @@ export default class Education extends Component {
               inputType="text"
               placeholder="06/2010"
               inputName="from"
-              value={education[experience].from}
+              value={education[selectedExperience].from}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -42,19 +42,19 @@ export default class Education extends Component {
               inputType="text"
               placeholder="12/2014"
               inputName="to"
-              value={education[experience].to}
+              value={education[selectedExperience].to}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
           <Card.Wrapper>
-            {education.currentExperience > 0 && (
+            {education[0] > 1 && (
               <Card.ButtonAdd
                 direction="previous"
                 text="Previous"
                 onClick={this.props.onClick}
               />
             )}
-            {education.currentExperience < 2 && (
+            {education[0] < 6 && (
               <Card.ButtonAdd
                 primary
                 direction="next"
@@ -63,7 +63,7 @@ export default class Education extends Component {
               />
             )}
           </Card.Wrapper>
-          <Card.Wrapper primary>
+          <Card.Wrapper wrapperType={'primary'}>
             <Card.Button
               buttonType="button"
               buttonText="Contact"
