@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../Card';
-import { withRouter } from '../../utils/withRouter';
 
-class Contact extends Component {
+export default class Contact extends Component {
   render() {
     let contact = { ...this.props.contactState };
     return (
@@ -64,5 +63,3 @@ class Contact extends Component {
     );
   }
 }
-
-export default withRouter(Contact);
