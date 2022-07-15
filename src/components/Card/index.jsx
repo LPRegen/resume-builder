@@ -10,6 +10,7 @@ import Button from './ButtonPages';
 import Wrapper from './Wrapper';
 import Skill from './Skill';
 import ButtonAdd from './ButtonAdd';
+import ButtonDelete from './ButtonDelete';
 
 const Card = styled.div`
   display: flex;
@@ -31,5 +32,6 @@ Card.Button = Button;
 Card.Wrapper = Wrapper;
 Card.Skill = Skill;
 Card.ButtonAdd = ButtonAdd;
+Card.ButtonDelete = ButtonDelete;
 
 export default Card;
