@@ -21,7 +21,7 @@ export default class Skills extends Component {
               />
             );
           })}
-          <Card.Wrapper>
+          <Card.Wrapper wrapperType="secondary">
             {skills.length < 10 && (
               <Card.ButtonAdd
                 primary
@@ -31,7 +31,7 @@ export default class Skills extends Component {
               />
             )}
           </Card.Wrapper>
-          <Card.Wrapper primary>
+          <Card.Wrapper wrapperType="primary">
             <Card.Button
               buttonType="button"
               buttonText="Work"
