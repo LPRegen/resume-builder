@@ -28,21 +28,7 @@ export default class Pages extends Component {
       education: [1, { degree: '', university: '', from: '', to: '' }],
       work: [1, { title: '', company: '', from: '', to: '' }],
       skills: [{ skillValue: '', placeholder: 'Team work' }],
-      languages: {
-        currentExperience: 0,
-        experience0: {
-          name: '',
-          level: '',
-        },
-        experience1: {
-          name: '',
-          level: '',
-        },
-        experience2: {
-          name: '',
-          level: '',
-        },
-      },
+      languages: [1, { name: '', level: '' }],
     };
     this.selectExperience = this.selectExperience.bind(this);
     this.addSkill = this.addSkill.bind(this);
@@ -178,7 +164,6 @@ export default class Pages extends Component {
           element={
             <Work
               onClick={(e) => this.selectExperience(e, 'work')}
-              currentExperience={this.state.work.currentExperience}
               workState={this.state.work}
               handleChange={(e) => this.handleChange(e, 'work')}
               deleteExperience={() => this.deleteExperience('work')}
@@ -200,10 +185,10 @@ export default class Pages extends Component {
           path="/languages"
           element={
             <Languages
-              languages={this.state.languages.currentExperience}
-              onClick={(e) => this.updateExperience(e, 'languages')}
+              onClick={(e) => this.selectExperience(e, 'languages')}
               languagesState={this.state.languages}
               handleChange={(e) => this.handleChange(e, 'languages')}
+              deleteExperience={() => this.deleteExperience('languages')}
             />
           }
         />
