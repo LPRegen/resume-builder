@@ -17,8 +17,6 @@ const StyledDiv = styled.div`
     switch (props.wrapperType) {
       case 'primary':
         return 'space-between';
-      case 'terciary':
-        return 'space-evenly';
       default:
         return '';
     }
