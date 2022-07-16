@@ -3,8 +3,8 @@ import Card from '../Card';
 
 export default class Languages extends Component {
   render() {
-    let languages = { ...this.props.languagesState };
-    let experience = 'experience' + languages.currentExperience;
+    let languages = [...this.props.languagesState];
+    let selectedExperience = languages[0];
 
     return (
       <Card>
@@ -15,7 +15,7 @@ export default class Languages extends Component {
               inputType="text"
               placeholder="German"
               inputName="name"
-              value={languages[experience].name}
+              value={languages[selectedExperience].name}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -24,11 +24,11 @@ export default class Languages extends Component {
               inputType="text"
               placeholder="B1"
               inputName="level"
-              value={languages[experience].level}
+              value={languages[selectedExperience].level}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper>
+          <Card.Wrapper wrapperType="secondary">
             {languages.currentExperience > 0 && (
               <Card.ButtonAdd
                 direction="previous"
@@ -45,7 +45,30 @@ export default class Languages extends Component {
               />
             )}
           </Card.Wrapper>
+          <Card.Wrapper wrapperType={'secondary'}>
+            <Card.ButtonDelete
+              deleteExperience={this.props.deleteExperience}
+              display={languages.length > 2 ? 'true' : 'false'}
+            />
+          </Card.Wrapper>
           <Card.Wrapper>
+            {languages[0] > 1 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {languages[0] < 6 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text={languages[selectedExperience + 1] ? 'Next' : 'Add'}
+                onClick={this.props.onClick}
+              />
+            )}
+          </Card.Wrapper>
+          <Card.Wrapper wrapperType={'primary'}>
             <Card.Button
               buttonType="button"
               buttonText="Skills"
