@@ -104,16 +104,12 @@ export default class Pages extends Component {
     );
   }
 
-  deleteExperience(e, updateStateOf) {
+  deleteExperience(updateStateOf) {
     let stateTarget = this.state[updateStateOf];
     let experienceTarget = stateTarget[0];
-    if (experienceTarget === stateTarget.length - 1) {
-      stateTarget[0] -= 1;
-    }
+    stateTarget[0] === 1 ? (stateTarget[0] = 1) : (stateTarget[0] -= 1);
     stateTarget.splice(experienceTarget, 1);
     this.setState({ [updateStateOf]: stateTarget });
-    e.target.setAttribute('test', 'asd');
-    console.log(e.target);
   }
 
   addSkill() {
@@ -193,7 +189,7 @@ export default class Pages extends Component {
               onClick={(e) => this.selectExperience(e, 'education')}
               educationState={this.state.education}
               handleChange={(e) => this.handleChange(e, 'education')}
-              deleteExperience={(e) => this.deleteExperience(e, 'education')}
+              deleteExperience={() => this.deleteExperience('education')}
             />
           }
         />
