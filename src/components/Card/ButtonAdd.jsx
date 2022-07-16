@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { colors } from '../theme';
-import {
-  MdExposurePlus1,
-  MdArrowBackIos,
-  MdArrowForwardIos,
-} from 'react-icons/md';
+import { MdExposurePlus1, MdArrowBackIos } from 'react-icons/md';
 
 export default class ButtonAdd extends Component {
   render() {
@@ -52,11 +48,6 @@ const IconAdd = styled(MdExposurePlus1)`
 `;
 
 const IconPrev = styled(MdArrowBackIos)`
-  color: ${colors.primaryText};
-  pointer-events: none;
-`;
-
-const IconNext = styled(MdArrowForwardIos)`
   color: ${colors.primaryText};
   pointer-events: none;
 `;
