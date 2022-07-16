@@ -52,7 +52,7 @@ export default class Education extends Component {
               display={education.length > 2 ? 'true' : 'false'}
             />
           </Card.Wrapper>
-          <Card.Wrapper wrapperType={'terciary'}>
+          <Card.Wrapper>
             {education[0] > 1 && (
               <Card.ButtonAdd
                 direction="previous"
