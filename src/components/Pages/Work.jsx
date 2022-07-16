@@ -3,8 +3,8 @@ import Card from '../Card';
 
 export default class Work extends Component {
   render() {
-    let work = { ...this.props.workState };
-    let experience = 'experience' + work.currentExperience;
+    let work = [...this.props.workState];
+    let selectedExperience = work[0];
 
     return (
       <Card>
@@ -15,7 +15,7 @@ export default class Work extends Component {
               inputType="text"
               placeholder="Software developer"
               inputName="title"
-              value={work[experience].title}
+              value={work[selectedExperience].title}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -24,7 +24,7 @@ export default class Work extends Component {
               inputType="text"
               placeholder="The Home Depot"
               inputName="company"
-              value={work[experience].company}
+              value={work[selectedExperience].company}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -33,7 +33,7 @@ export default class Work extends Component {
               inputType="text"
               placeholder="07/2018"
               inputName="from"
-              value={work[experience].from}
+              value={work[selectedExperience].from}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
@@ -42,28 +42,34 @@ export default class Work extends Component {
               inputType="text"
               placeholder="12/2020"
               inputName="to"
-              value={work[experience].to}
+              value={work[selectedExperience].to}
               handleChange={this.props.handleChange}
             />
           </Card.Label>
+          <Card.Wrapper wrapperType={'secondary'}>
+            <Card.ButtonDelete
+              deleteExperience={this.props.deleteExperience}
+              display={work.length > 2 ? 'true' : 'false'}
+            />
+          </Card.Wrapper>
           <Card.Wrapper>
-            {work.currentExperience > 0 && (
+            {work[0] > 1 && (
               <Card.ButtonAdd
                 direction="previous"
                 text="Previous"
                 onClick={this.props.onClick}
               />
             )}
-            {work.currentExperience < 2 && (
+            {work[0] < 6 && (
               <Card.ButtonAdd
                 primary
                 direction="next"
-                text="Add"
+                text={work[selectedExperience + 1] ? 'Next' : 'Add'}
                 onClick={this.props.onClick}
               />
             )}
           </Card.Wrapper>
-          <Card.Wrapper primary>
+          <Card.Wrapper wrapperType={'primary'}>
             <Card.Button
               buttonType="button"
               buttonText="Education"
