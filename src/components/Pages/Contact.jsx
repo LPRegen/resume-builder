@@ -44,7 +44,7 @@ export default class Contact extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper primary>
+          <Card.Wrapper wrapperType="primary">
             <Card.Button
               buttonType="button"
               buttonText="Information"
