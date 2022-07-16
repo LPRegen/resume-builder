@@ -64,7 +64,7 @@ export default class Education extends Component {
               <Card.ButtonAdd
                 primary
                 direction="next"
-                text="Add"
+                text={education[selectedExperience + 1] ? 'Next' : 'Add'}
                 onClick={this.props.onClick}
               />
             )}
