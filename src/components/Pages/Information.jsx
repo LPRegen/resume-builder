@@ -44,7 +44,7 @@ export default class Information extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper primary>
+          <Card.Wrapper wrapperType="primary">
             <Card.Button
               primary={'true'}
               buttonType="submit"
