@@ -105,9 +105,7 @@ export default class Pages extends Component {
   }
 
   handleChange(e, updateStateOf) {
-    let targetState = JSON.parse(
-      JSON.stringify([...this.state[updateStateOf]])
-    );
+    let targetState;
     let newValue = e.target.value;
     let targetValue = e.target.getAttribute('name');
     if (
@@ -115,6 +113,7 @@ export default class Pages extends Component {
       updateStateOf === 'work' ||
       updateStateOf === 'languages'
     ) {
+      targetState = JSON.parse(JSON.stringify([...this.state[updateStateOf]]));
       let experience = targetState[0];
       targetState[experience] = {
         ...targetState[experience],
@@ -123,6 +122,7 @@ export default class Pages extends Component {
       this.setState({ [updateStateOf]: targetState });
       return;
     }
+    targetState = JSON.parse(JSON.stringify({ ...this.state[updateStateOf] }));
     targetState[targetValue] = newValue;
     this.setState({ [updateStateOf]: targetState });
   }
@@ -192,7 +192,10 @@ export default class Pages extends Component {
             />
           }
         />
-        <Route path="/preview" element={<Preview />} />
+        <Route
+          path="/preview"
+          element={<Preview userInformation={this.state} />}
+        />
       </Routes>
     );
   }
