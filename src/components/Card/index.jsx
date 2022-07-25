@@ -15,12 +15,12 @@ import ButtonDelete from './ButtonDelete';
 const Card = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1.5rem 0 1.5rem 1rem;
+  margin: 1rem;
   background-color: ${colors.bgPrimary};
   border-radius: 10px;
-  padding: 1rem 1rem 1.5rem 1rem;
-  height: fit-content;
-  width: 298px;
+  padding: 1rem;
+  height: 730px;
+  width: 328px;
 `;
 
 Card.Title = Title;

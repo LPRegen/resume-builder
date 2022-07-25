@@ -22,7 +22,6 @@ const StyledLabel = styled.label`
   background-color: ${colors.bgInput};
   color: ${colors.label};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  width: 266px;
 
   :focus-within {
     border: 1px solid ${colors.selected};
