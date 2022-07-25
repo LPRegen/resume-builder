@@ -44,16 +44,16 @@ export default class Information extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper wrapperType="primary">
-            <Card.Button
-              primary={'true'}
-              buttonType="submit"
-              buttonText="Contact"
-              direction="next"
-              path="/contact"
-            />
-          </Card.Wrapper>
         </Card.Form>
+        <Card.Wrapper wrapperType="primary" position="right">
+          <Card.Button
+            primary={'true'}
+            buttonType="submit"
+            buttonText="Contact"
+            direction="next"
+            path="/contact"
+          />
+        </Card.Wrapper>
       </Card>
     );
   }

@@ -46,44 +46,44 @@ export default class Education extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper wrapperType={'secondary'}>
-            <Card.ButtonDelete
-              deleteExperience={this.props.deleteExperience}
-              display={education.length > 2 ? 'true' : 'false'}
-            />
-          </Card.Wrapper>
-          <Card.Wrapper>
-            {education[0] > 1 && (
-              <Card.ButtonAdd
-                direction="previous"
-                text="Previous"
-                onClick={this.props.onClick}
-              />
-            )}
-            {education[0] < 6 && (
-              <Card.ButtonAdd
-                primary
-                direction="next"
-                text={education[selectedExperience + 1] ? 'Next' : 'Add'}
-                onClick={this.props.onClick}
-              />
-            )}
-          </Card.Wrapper>
-          <Card.Wrapper wrapperType={'primary'}>
-            <Card.Button
-              buttonType="button"
-              buttonText="Contact"
-              direction="previous"
-              path="/contact"
-            />
-            <Card.Button
-              buttonType="submit"
-              buttonText="Work"
-              direction="next"
-              path="/work"
-            />
-          </Card.Wrapper>
         </Card.Form>
+        <Card.Wrapper wrapperType={'secondary'}>
+          <Card.ButtonDelete
+            deleteExperience={this.props.deleteExperience}
+            display={education.length > 2 ? 'true' : 'false'}
+          />
+        </Card.Wrapper>
+        <Card.Wrapper wrapperType={'secondary'}>
+          {education[0] > 1 && (
+            <Card.ButtonAdd
+              direction="previous"
+              text="Previous"
+              onClick={this.props.onClick}
+            />
+          )}
+          {education[0] < 6 && (
+            <Card.ButtonAdd
+              primary
+              direction="next"
+              text={education[selectedExperience + 1] ? 'Next' : 'Add'}
+              onClick={this.props.onClick}
+            />
+          )}
+        </Card.Wrapper>
+        <Card.Wrapper wrapperType={'primary'} position="center">
+          <Card.Button
+            buttonType="button"
+            buttonText="Contact"
+            direction="previous"
+            path="/contact"
+          />
+          <Card.Button
+            buttonType="submit"
+            buttonText="Work"
+            direction="next"
+            path="/work"
+          />
+        </Card.Wrapper>
       </Card>
     );
   }

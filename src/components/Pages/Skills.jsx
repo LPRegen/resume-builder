@@ -8,7 +8,7 @@ export default class Skills extends Component {
     return (
       <Card>
         <Card.Title title="Skills" />
-        <Card.Form handleSubmit={this.props.handleSubmit}>
+        <Card.Form formType="skills" handleSubmit={this.props.handleSubmit}>
           {skills.map((skill, index) => {
             return (
               <Card.Skill
@@ -21,31 +21,32 @@ export default class Skills extends Component {
               />
             );
           })}
-          <Card.Wrapper wrapperType="secondary">
-            {skills.length < 10 && (
-              <Card.ButtonAdd
-                primary
-                direction="next"
-                text="Add"
-                onClick={this.props.addSkill}
-              />
-            )}
-          </Card.Wrapper>
-          <Card.Wrapper wrapperType="primary">
-            <Card.Button
-              buttonType="button"
-              buttonText="Work"
-              direction="previous"
-              path="/work"
-            />
-            <Card.Button
-              buttonType="submit"
-              buttonText="Languages"
-              direction="next"
-              path="/languages"
-            />
-          </Card.Wrapper>
         </Card.Form>
+
+        <Card.Wrapper wrapperType="secondary">
+          {skills.length < 10 && (
+            <Card.ButtonAdd
+              primary
+              direction="next"
+              text="Add"
+              onClick={this.props.addSkill}
+            />
+          )}
+        </Card.Wrapper>
+        <Card.Wrapper wrapperType="primary" position="center">
+          <Card.Button
+            buttonType="button"
+            buttonText="Work"
+            direction="previous"
+            path="/work"
+          />
+          <Card.Button
+            buttonType="submit"
+            buttonText="Languages"
+            direction="next"
+            path="/languages"
+          />
+        </Card.Wrapper>
       </Card>
     );
   }

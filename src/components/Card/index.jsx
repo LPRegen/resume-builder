@@ -15,6 +15,8 @@ import ButtonDelete from './ButtonDelete';
 const Card = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  position: relative;
   margin: 1rem;
   background-color: ${colors.bgPrimary};
   border-radius: 10px;

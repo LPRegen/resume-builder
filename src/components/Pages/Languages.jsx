@@ -28,61 +28,61 @@ export default class Languages extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper wrapperType="secondary">
-            {languages.currentExperience > 0 && (
-              <Card.ButtonAdd
-                direction="previous"
-                text="Previous"
-                onClick={this.props.onClick}
-              />
-            )}
-            {languages.currentExperience < 2 && (
-              <Card.ButtonAdd
-                primary
-                direction="next"
-                text="Add"
-                onClick={this.props.onClick}
-              />
-            )}
-          </Card.Wrapper>
-          <Card.Wrapper wrapperType={'secondary'}>
-            <Card.ButtonDelete
-              deleteExperience={this.props.deleteExperience}
-              display={languages.length > 2 ? 'true' : 'false'}
-            />
-          </Card.Wrapper>
-          <Card.Wrapper>
-            {languages[0] > 1 && (
-              <Card.ButtonAdd
-                direction="previous"
-                text="Previous"
-                onClick={this.props.onClick}
-              />
-            )}
-            {languages[0] < 6 && (
-              <Card.ButtonAdd
-                primary
-                direction="next"
-                text={languages[selectedExperience + 1] ? 'Next' : 'Add'}
-                onClick={this.props.onClick}
-              />
-            )}
-          </Card.Wrapper>
-          <Card.Wrapper wrapperType={'primary'}>
-            <Card.Button
-              buttonType="button"
-              buttonText="Skills"
-              direction="previous"
-              path="/skills"
-            />
-            <Card.Button
-              buttonType="submit"
-              buttonText="Preview"
-              direction="next"
-              path="/preview"
-            />
-          </Card.Wrapper>
         </Card.Form>
+        <Card.Wrapper wrapperType={'secondary'}>
+          <Card.ButtonDelete
+            deleteExperience={this.props.deleteExperience}
+            display={languages.length > 2 ? 'true' : 'false'}
+          />
+        </Card.Wrapper>
+        <Card.Wrapper wrapperType="secondary">
+          {languages.currentExperience > 0 && (
+            <Card.ButtonAdd
+              direction="previous"
+              text="Previous"
+              onClick={this.props.onClick}
+            />
+          )}
+          {languages.currentExperience < 2 && (
+            <Card.ButtonAdd
+              primary
+              direction="next"
+              text="Add"
+              onClick={this.props.onClick}
+            />
+          )}
+        </Card.Wrapper>
+        <Card.Wrapper>
+          {languages[0] > 1 && (
+            <Card.ButtonAdd
+              direction="previous"
+              text="Previous"
+              onClick={this.props.onClick}
+            />
+          )}
+          {languages[0] < 6 && (
+            <Card.ButtonAdd
+              primary
+              direction="next"
+              text={languages[selectedExperience + 1] ? 'Next' : 'Add'}
+              onClick={this.props.onClick}
+            />
+          )}
+        </Card.Wrapper>
+        <Card.Wrapper wrapperType={'primary'} position="center">
+          <Card.Button
+            buttonType="button"
+            buttonText="Skills"
+            direction="previous"
+            path="/skills"
+          />
+          <Card.Button
+            buttonType="submit"
+            buttonText="Preview"
+            direction="next"
+            path="/preview"
+          />
+        </Card.Wrapper>
       </Card>
     );
   }

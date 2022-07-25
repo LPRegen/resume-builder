@@ -44,21 +44,21 @@ export default class Contact extends Component {
               handleChange={this.props.handleChange}
             />
           </Card.Label>
-          <Card.Wrapper wrapperType="primary">
-            <Card.Button
-              buttonType="button"
-              buttonText="Information"
-              direction="previous"
-              path="/"
-            />
-            <Card.Button
-              buttonType="submit"
-              buttonText="Education"
-              direction="next"
-              path="/education"
-            />
-          </Card.Wrapper>
         </Card.Form>
+        <Card.Wrapper wrapperType="primary" position="center">
+          <Card.Button
+            buttonType="button"
+            buttonText="Information"
+            direction="previous"
+            path="/"
+          />
+          <Card.Button
+            buttonType="submit"
+            buttonText="Education"
+            direction="next"
+            path="/education"
+          />
+        </Card.Wrapper>
       </Card>
     );
   }

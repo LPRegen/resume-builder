@@ -42,4 +42,6 @@ h6 {
 #root {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  flex-grow: 1;
 }
