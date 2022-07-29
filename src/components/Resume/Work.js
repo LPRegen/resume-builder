@@ -6,6 +6,7 @@ export default class Work extends Component {
     return (
       <div>
         <Header>Work Experience</Header>
+        {/* eslint-disable-next-line */}
         {this.props.work.map((work, index) => {
           if (index !== 0) {
             return (

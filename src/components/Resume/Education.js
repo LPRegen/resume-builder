@@ -6,6 +6,7 @@ export default class Education extends Component {
     return (
       <div>
         <Header>Education</Header>
+        {/* eslint-disable-next-line */}
         {this.props.education.map((education, index) => {
           if (index !== 0) {
             return (

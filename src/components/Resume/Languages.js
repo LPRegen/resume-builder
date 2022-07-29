@@ -6,6 +6,7 @@ export default class Languages extends Component {
     return (
       <Container>
         <Header>Languages</Header>
+        {/* eslint-disable-next-line */}
         {this.props.languages.map((language, index) => {
           if (index !== 0) {
             return (
