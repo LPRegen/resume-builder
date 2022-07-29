@@ -38,6 +38,13 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  padding: 1rem;
   overflow: auto;
+
+  @media print {
+    break-after: auto;
+  }
+
+  @page {
+    margin: 1rem 0;
+  }
 `;
