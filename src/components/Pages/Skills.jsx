@@ -41,7 +41,7 @@ export default class Skills extends Component {
             path="/work"
           />
           <Card.Button
-            buttonType="submit"
+            buttonType="button"
             buttonText="Languages"
             direction="next"
             path="/languages"
