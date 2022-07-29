@@ -1,141 +1,30 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
+import ReactToPrint from 'react-to-print';
+import styled from 'styled-components';
+import { colors } from '../theme';
+import Card from '../Card';
 import Information from './Information';
 import Contact from './Contact';
 import Education from './Education';
 import Work from './Work';
 import Skills from './Skills';
 import Languages from './Languages';
-import Preview from './Preview';
+import Resume from '../Resume/Resume';
 
 export default class Pages extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      information: {
-        first: '',
-        last: '',
-        title: '',
-        profile: '',
-      },
-      contact: {
-        website: '',
-        email: '',
-        location: '',
-        phone: '',
-      },
-      education: [1, { degree: '', university: '', from: '', to: '' }],
-      work: [1, { title: '', company: '', from: '', to: '' }],
-      skills: [{ skillValue: '', placeholder: 'Team work' }],
-      languages: [1, { name: '', level: '' }],
-    };
-    this.selectExperience = this.selectExperience.bind(this);
-    this.addSkill = this.addSkill.bind(this);
-    this.removeSkill = this.removeSkill.bind(this);
-    this.handleSkillChange = this.handleSkillChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.createExperience = this.createExperience.bind(this);
-    this.deleteExperience = this.deleteExperience.bind(this);
-  }
-
-  createExperience(updateStateOf, stateTarget) {
-    if (!stateTarget[stateTarget[0]]) {
-      let newExperience;
-      if (updateStateOf !== 'languages') {
-        newExperience = {
-          [updateStateOf === 'education' ? 'degree' : 'title']: '',
-          [updateStateOf === 'education' ? 'university' : 'company']: '',
-          from: '',
-          to: '',
-        };
-      } else {
-        newExperience = {
-          name: '',
-          level: '',
-        };
-      }
-      stateTarget.push(newExperience);
-      this.setState({ [updateStateOf]: stateTarget });
-    }
-  }
-
-  selectExperience(e, updateStateOf) {
-    let stateTarget = this.state[updateStateOf];
-    let direction = e.target.getAttribute('direction');
-    direction === 'previous' ? (stateTarget[0] -= 1) : (stateTarget[0] += 1);
-    this.setState(
-      { [[updateStateOf][0]]: stateTarget },
-      this.createExperience(updateStateOf, stateTarget)
-    );
-  }
-
-  deleteExperience(updateStateOf) {
-    let stateTarget = this.state[updateStateOf];
-    let experienceTarget = stateTarget[0];
-    stateTarget[0] === 1 ? (stateTarget[0] = 1) : (stateTarget[0] -= 1);
-    stateTarget.splice(experienceTarget, 1);
-    this.setState({ [updateStateOf]: stateTarget });
-  }
-
-  addSkill() {
-    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
-    if (skillsState.length < 10) {
-      let newSkill = { skillValue: '', placeholder: '' };
-      skillsState.push(newSkill);
-      this.setState({ skills: skillsState });
-    }
-  }
-
-  removeSkill(e) {
-    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
-    let targetSkill = e.target.previousElementSibling
-      .getAttribute('name')
-      .slice(-1);
-    skillsState.splice(targetSkill, 1);
-    this.setState({ skills: skillsState });
-  }
-
-  handleSkillChange(e) {
-    let skillsState = JSON.parse(JSON.stringify([...this.state.skills]));
-    let newSkillValue = e.target.value;
-    let skillTarget = e.target.getAttribute('name').slice(-1);
-    skillsState[skillTarget].skillValue = newSkillValue;
-    this.setState({ skills: skillsState });
-  }
-
-  handleChange(e, updateStateOf) {
-    let targetState;
-    let newValue = e.target.value;
-    let targetValue = e.target.getAttribute('name');
-    if (
-      updateStateOf === 'education' ||
-      updateStateOf === 'work' ||
-      updateStateOf === 'languages'
-    ) {
-      targetState = JSON.parse(JSON.stringify([...this.state[updateStateOf]]));
-      let experience = targetState[0];
-      targetState[experience] = {
-        ...targetState[experience],
-        [targetValue]: newValue,
-      };
-      this.setState({ [updateStateOf]: targetState });
-      return;
-    }
-    targetState = JSON.parse(JSON.stringify({ ...this.state[updateStateOf] }));
-    targetState[targetValue] = newValue;
-    this.setState({ [updateStateOf]: targetState });
-  }
-
   render() {
+    let currentState = this.props.state;
     return (
       <Routes>
         <Route
           path="/"
           element={
             <Information
-              informationState={this.state.information}
-              handleChange={(e) => this.handleChange(e, 'information')}
+              informationState={currentState.information}
+              handleChange={(e) =>
+                this.props.handleInfoChange(e, 'information')
+              }
             />
           }
         />
@@ -143,8 +32,8 @@ export default class Pages extends Component {
           path="/contact"
           element={
             <Contact
-              contactState={this.state.contact}
-              handleChange={(e) => this.handleChange(e, 'contact')}
+              contactState={currentState.contact}
+              handleChange={(e) => this.props.handleContactChange(e, 'contact')}
             />
           }
         />
@@ -152,10 +41,16 @@ export default class Pages extends Component {
           path="/education"
           element={
             <Education
-              onClick={(e) => this.selectExperience(e, 'education')}
-              educationState={this.state.education}
-              handleChange={(e) => this.handleChange(e, 'education')}
-              deleteExperience={() => this.deleteExperience('education')}
+              onClick={(e) =>
+                this.props.selectEducationExperience(e, 'education')
+              }
+              educationState={currentState.education}
+              handleChange={(e) =>
+                this.props.handleEducationChange(e, 'education')
+              }
+              deleteExperience={() =>
+                this.props.deleteEducationExperience('education')
+              }
             />
           }
         />
@@ -163,10 +58,10 @@ export default class Pages extends Component {
           path="/work"
           element={
             <Work
-              onClick={(e) => this.selectExperience(e, 'work')}
-              workState={this.state.work}
-              handleChange={(e) => this.handleChange(e, 'work')}
-              deleteExperience={() => this.deleteExperience('work')}
+              onClick={(e) => this.props.selectWorkExperience(e, 'work')}
+              workState={currentState.work}
+              handleChange={(e) => this.props.handleWorkChange(e, 'work')}
+              deleteExperience={() => this.props.deleteWorkExperience('work')}
             />
           }
         />
@@ -174,10 +69,10 @@ export default class Pages extends Component {
           path="/skills"
           element={
             <Skills
-              skills={this.state.skills}
-              addSkill={this.addSkill}
-              removeSkill={(e) => this.removeSkill(e)}
-              handleChange={(e) => this.handleSkillChange(e)}
+              skills={currentState.skills}
+              addSkill={this.props.addSkill}
+              removeSkill={(e) => this.props.removeSkill(e)}
+              handleChange={(e) => this.props.handleSkillChange(e)}
             />
           }
         />
@@ -185,18 +80,61 @@ export default class Pages extends Component {
           path="/languages"
           element={
             <Languages
-              onClick={(e) => this.selectExperience(e, 'languages')}
-              languagesState={this.state.languages}
-              handleChange={(e) => this.handleChange(e, 'languages')}
-              deleteExperience={() => this.deleteExperience('languages')}
+              onClick={(e) =>
+                this.props.selectLanguagesExperience(e, 'languages')
+              }
+              languagesState={currentState.languages}
+              handleChange={(e) =>
+                this.props.handleLanguagesChange(e, 'languages')
+              }
+              deleteExperience={() =>
+                this.props.deleteLanguagesExperience('languages')
+              }
             />
           }
         />
         <Route
           path="/preview"
-          element={<Preview userInformation={this.state} />}
+          element={
+            <>
+              <Resume
+                state={currentState}
+                ref={(el) => (this.componentRef = el)}
+              />
+              <Card.Wrapper wrapperType="primary" position="center">
+                <Card.Button
+                  buttonType="button"
+                  buttonText="Languages"
+                  direction="previous"
+                  path="/languages"
+                />
+                <ReactToPrint
+                  copyStyles={true}
+                  trigger={() => {
+                    return <StyledButton href="#">Print Resume</StyledButton>;
+                  }}
+                  content={() => this.componentRef}
+                />
+              </Card.Wrapper>
+            </>
+          }
         />
       </Routes>
     );
   }
 }
+
+const StyledButton = styled.button`
+  all: unset;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0.3rem;
+  background-color: ${colors.bgSecondary};
+  color: ${colors.primaryText};
+  border-radius: 20px;
+  cursor: pointer;
+  min-width: 120px;
+  font-size: 14px;
+`;
