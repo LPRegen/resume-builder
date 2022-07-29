@@ -7,25 +7,26 @@ import Sidebar from './Sidebar';
 
 export default class Resume extends Component {
   render() {
+    let state = this.props.state;
     return (
       <Container>
         <Header
-          first={this.props.first}
-          last={this.props.last}
-          title={this.props.title}
+          first={state.information.first}
+          last={state.information.last}
+          title={state.information.title}
         />
         <Sidebar
-          website={this.props.website}
-          email={this.props.email}
-          location={this.props.location}
-          phone={this.props.phone}
-          skills={this.props.skills}
-          languages={this.props.languages}
+          website={state.contact.website}
+          email={state.contact.email}
+          location={state.contact.location}
+          phone={state.contact.phone}
+          skills={state.skills}
+          languages={state.languages}
         />
         <MainContent
-          profile={this.props.profile}
-          education={this.props.education}
-          work={this.props.work}
+          profile={state.information.profile}
+          education={state.education}
+          work={state.work}
         />
       </Container>
     );
