@@ -83,6 +83,7 @@ export default class Pages extends Component {
               onClick={(e) =>
                 this.props.selectLanguagesExperience(e, 'languages')
               }
+              currentWidth={currentState.width}
               languagesState={currentState.languages}
               handleChange={(e) =>
                 this.props.handleLanguagesChange(e, 'languages')

@@ -5,6 +5,7 @@ export default class Languages extends Component {
   render() {
     let languages = [...this.props.languagesState];
     let selectedExperience = languages[0];
+    let currentWidth = this.props.currentWidth;
 
     return (
       <Card>
@@ -76,12 +77,14 @@ export default class Languages extends Component {
             direction="previous"
             path="/skills"
           />
-          <Card.Button
-            buttonType="submit"
-            buttonText="Preview"
-            direction="next"
-            path="/preview"
-          />
+          {currentWidth < 719 && (
+            <Card.Button
+              buttonType="submit"
+              buttonText="Preview"
+              direction="next"
+              path="/preview"
+            />
+          )}
         </Card.Wrapper>
       </Card>
     );
