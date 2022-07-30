@@ -28,4 +28,5 @@ const StyledForm = styled.form`
         return 'auto';
     }
   }};
+  min-width: 100%;
 `;

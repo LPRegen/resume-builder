@@ -28,7 +28,7 @@ const StyledDiv = styled.div`
   margin-top: ${(props) => {
     switch (props.wrapperType) {
       case 'primary':
-        return '2.5rem';
+        return 'auto';
       case 'secondary':
         return '1.5rem';
       case 'terciary':
@@ -37,19 +37,11 @@ const StyledDiv = styled.div`
         return '';
     }
   }};
-  position: ${(props) => {
-    switch (props.wrapperType) {
-      case 'primary':
-        return 'absolute';
-      default:
-        return 'static';
-    }
-  }};
-  bottom: 16px;
-  right: ${(props) => {
+  margin: auto 0 1rem auto;
+  left: ${(props) => {
     switch (props.position) {
-      case 'right':
-        return '16px';
+      case 'left':
+        return '0px';
       case 'center':
         return '0';
       default:

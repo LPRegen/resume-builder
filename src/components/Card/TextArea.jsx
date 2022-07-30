@@ -6,7 +6,7 @@ export default class TextArea extends Component {
   render() {
     return (
       <StyledTextArea
-        cols="25"
+        cols="20"
         rows="8"
         placeholder={this.props.placeholder}
         name={this.props.name}

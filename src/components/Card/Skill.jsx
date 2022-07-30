@@ -26,18 +26,18 @@ export default class Skill extends Component {
 const StyledLabel = styled.label`
   display: flex;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 1rem;
 `;
 
 const StyledInput = styled.input`
   all: unset;
   background-color: ${colors.bgSkills};
-  padding-left: 0.5rem;
   border-radius: 10px;
   color: ${colors.primaryText};
-  width: 80%;
   padding: 0.5rem 0.5rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid transparent;
+  width: 100%;
 
   :focus {
     border: 1px solid ${colors.selected};

@@ -18,10 +18,12 @@ const StyledLabel = styled.label`
   flex-direction: column;
   font-size: 14px;
   padding: 0.5rem 1rem;
+  margin: 1px;
   border-radius: 10px;
   background-color: ${colors.bgInput};
   color: ${colors.label};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid transparent;
 
   :focus-within {
     border: 1px solid ${colors.selected};

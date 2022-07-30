@@ -23,6 +23,7 @@ const Card = styled.div`
   padding: 1rem;
   height: 730px;
   min-width: 328px;
+  flex-basis: 0;
 `;
 
 Card.Title = Title;
