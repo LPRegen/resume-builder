@@ -11,6 +11,7 @@ import Wrapper from './Wrapper';
 import Skill from './Skill';
 import ButtonAdd from './ButtonAdd';
 import ButtonDelete from './ButtonDelete';
+import PrintButton from './PrintButton';
 
 const Card = styled.div`
   display: flex;
@@ -36,5 +37,6 @@ Card.Wrapper = Wrapper;
 Card.Skill = Skill;
 Card.ButtonAdd = ButtonAdd;
 Card.ButtonDelete = ButtonDelete;
+Card.ButtonPrint = PrintButton;
 
 export default Card;
