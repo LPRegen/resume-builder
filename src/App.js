@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactToPrint from 'react-to-print';
+import Card from './components/Card';
 import Pages from './components/Pages/Pages';
 import Resume from './components/Resume/Resume';
 
@@ -157,7 +159,20 @@ export default class App extends Component {
       return (
         <>
           {CardComponent}
-          <Resume state={this.state} ref={(el) => (this.componentRef = el)} />
+          <Card>
+            <Resume state={this.state} ref={(el) => (this.componentRef = el)} />
+            <Card.Wrapper wrapperType="primary" position="center">
+              <ReactToPrint
+                copyStyles={true}
+                trigger={() => {
+                  return (
+                    <Card.ButtonPrint href="#">Print Resume</Card.ButtonPrint>
+                  );
+                }}
+                content={() => this.componentRef}
+              />
+            </Card.Wrapper>
+          </Card>
         </>
       );
     } else {
