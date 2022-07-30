@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ReactToPrint from 'react-to-print';
-import styled from 'styled-components';
-import { colors } from '../theme';
 import Card from '../Card';
 import Information from './Information';
 import Contact from './Contact';
@@ -97,7 +95,7 @@ export default class Pages extends Component {
         <Route
           path="/preview"
           element={
-            <>
+            <Card>
               <Resume
                 state={currentState}
                 ref={(el) => (this.componentRef = el)}
@@ -112,30 +110,17 @@ export default class Pages extends Component {
                 <ReactToPrint
                   copyStyles={true}
                   trigger={() => {
-                    return <StyledButton href="#">Print Resume</StyledButton>;
+                    return (
+                      <Card.ButtonPrint href="#">Print Resume</Card.ButtonPrint>
+                    );
                   }}
                   content={() => this.componentRef}
                 />
               </Card.Wrapper>
-            </>
+            </Card>
           }
         />
       </Routes>
     );
   }
 }
-
-const StyledButton = styled.button`
-  all: unset;
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  padding: 0.8rem 0.3rem;
-  background-color: ${colors.bgSecondary};
-  color: ${colors.primaryText};
-  border-radius: 20px;
-  cursor: pointer;
-  min-width: 120px;
-  font-size: 14px;
-`;
