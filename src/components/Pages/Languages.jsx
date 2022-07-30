@@ -70,7 +70,7 @@ export default class Languages extends Component {
             />
           )}
         </Card.Wrapper>
-        <Card.Wrapper wrapperType={'primary'} position="center">
+        <Card.Wrapper wrapperType="primary" position="center">
           <Card.Button
             buttonType="button"
             buttonText="Skills"
@@ -79,7 +79,7 @@ export default class Languages extends Component {
           />
           {currentWidth < 719 && (
             <Card.Button
-              buttonType="submit"
+              buttonType="button"
               buttonText="Preview"
               direction="next"
               path="/preview"

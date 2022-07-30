@@ -45,10 +45,10 @@ export default class Information extends Component {
             />
           </Card.Label>
         </Card.Form>
-        <Card.Wrapper wrapperType="primary" position="right">
+        <Card.Wrapper wrapperType="primary" position="center">
           <Card.Button
             primary={'true'}
-            buttonType="submit"
+            buttonType="button"
             buttonText="Contact"
             direction="next"
             path="/contact"
