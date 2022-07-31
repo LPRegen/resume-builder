@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Information extends Component {
   render() {
+    document.title = `Resume builder - Information`;
     let information = { ...this.props.informationState };
 
     return (

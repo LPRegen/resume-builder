@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Education extends Component {
   render() {
+    document.title = `Resume builder - Education`;
     let education = [...this.props.educationState];
     let selectedExperience = education[0];
 

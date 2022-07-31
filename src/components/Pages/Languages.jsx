@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Languages extends Component {
   render() {
+    document.title = `Resume builder - Languages`;
     let languages = [...this.props.languagesState];
     let selectedExperience = languages[0];
     let currentWidth = this.props.currentWidth;
@@ -30,45 +31,47 @@ export default class Languages extends Component {
             />
           </Card.Label>
         </Card.Form>
-        <Card.Wrapper wrapperType={'secondary'}>
-          <Card.ButtonDelete
-            deleteExperience={this.props.deleteExperience}
-            display={languages.length > 2 ? 'true' : 'false'}
-          />
-        </Card.Wrapper>
-        <Card.Wrapper wrapperType="secondary">
-          {languages.currentExperience > 0 && (
-            <Card.ButtonAdd
-              direction="previous"
-              text="Previous"
-              onClick={this.props.onClick}
+        <Card.Wrapper wrapperType="terciary">
+          <Card.Wrapper wrapperType={'secondary'}>
+            <Card.ButtonDelete
+              deleteExperience={this.props.deleteExperience}
+              display={languages.length > 2 ? 'true' : 'false'}
             />
-          )}
-          {languages.currentExperience < 2 && (
-            <Card.ButtonAdd
-              primary
-              direction="next"
-              text="Add"
-              onClick={this.props.onClick}
-            />
-          )}
-        </Card.Wrapper>
-        <Card.Wrapper>
-          {languages[0] > 1 && (
-            <Card.ButtonAdd
-              direction="previous"
-              text="Previous"
-              onClick={this.props.onClick}
-            />
-          )}
-          {languages[0] < 6 && (
-            <Card.ButtonAdd
-              primary
-              direction="next"
-              text={languages[selectedExperience + 1] ? 'Next' : 'Add'}
-              onClick={this.props.onClick}
-            />
-          )}
+          </Card.Wrapper>
+          <Card.Wrapper wrapperType="secondary">
+            {languages.currentExperience > 0 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {languages.currentExperience < 2 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text="Add"
+                onClick={this.props.onClick}
+              />
+            )}
+          </Card.Wrapper>
+          <Card.Wrapper>
+            {languages[0] > 1 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {languages[0] < 6 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text={languages[selectedExperience + 1] ? 'Next' : 'Add'}
+                onClick={this.props.onClick}
+              />
+            )}
+          </Card.Wrapper>
         </Card.Wrapper>
         <Card.Wrapper wrapperType="primary">
           <Card.Button

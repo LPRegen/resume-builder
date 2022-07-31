@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Skills extends Component {
   render() {
+    document.title = `Resume builder - Skills`;
     let skills = Array.from(this.props.skills);
 
     return (

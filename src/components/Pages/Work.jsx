@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Work extends Component {
   render() {
+    document.title = `Resume builder - Work`;
     let work = [...this.props.workState];
     let selectedExperience = work[0];
 

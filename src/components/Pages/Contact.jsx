@@ -3,6 +3,7 @@ import Card from '../Card';
 
 export default class Contact extends Component {
   render() {
+    document.title = `Resume builder - Contact`;
     let contact = { ...this.props.contactState };
     return (
       <Card>
