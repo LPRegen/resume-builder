@@ -8,7 +8,7 @@ export default class Work extends Component {
         <Header>Work Experience</Header>
         {/* eslint-disable-next-line */}
         {this.props.work.map((work, index) => {
-          if (index !== 0) {
+          if (index !== 0 && work.title) {
             return (
               <Container key={index}>
                 <Title>
@@ -17,6 +17,7 @@ export default class Work extends Component {
                 <FromTo>
                   {work.from} - {work.to}
                 </FromTo>
+                <Description>{work.description}</Description>
               </Container>
             );
           }
@@ -48,4 +49,9 @@ const Title = styled.p`
 const FromTo = styled.p`
   font-size: 11px;
   font-weight: lighter;
+`;
+
+const Description = styled.p`
+  font-weight: normal;
+  font-size: 14px;
 `;
