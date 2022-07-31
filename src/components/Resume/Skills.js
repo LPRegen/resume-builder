@@ -8,7 +8,9 @@ export default class Skills extends Component {
         <Header>Skills</Header>
         <List>
           {this.props.skills.map((skill, index) => {
-            if (skill.skillValue) <Item key={index}>{skill.skillValue}</Item>;
+            if (skill.skillValue) {
+              return <Item key={index}>{skill.skillValue}</Item>;
+            }
           })}
         </List>
       </Container>
@@ -36,5 +38,5 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  font-size: 16px;
+  font-size: 14px;
 `;

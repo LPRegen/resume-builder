@@ -28,6 +28,6 @@ const Header = styled.p`
 `;
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
 `;
