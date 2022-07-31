@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
 import styled from 'styled-components';
 import { colors } from '../theme';
 
-export default class PrintButton extends Component {
-  render() {
-    return <StyledButton href={'#'}>Print Resume</StyledButton>;
-  }
-}
-
-const StyledButton = styled.button`
+const PrintButton = styled.button`
   all: unset;
   display: flex;
   gap: 0.5rem;
@@ -22,3 +15,5 @@ const StyledButton = styled.button`
   min-width: 120px;
   font-size: 14px;
 `;
+
+export default PrintButton;
