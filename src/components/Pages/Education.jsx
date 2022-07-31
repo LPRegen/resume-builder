@@ -11,7 +11,7 @@ export default class Education extends Component {
       <Card>
         <Card.Title title="Education" />
         <Card.Form handleSubmit={this.props.handleSubmit}>
-          <Card.Label labelTitle="Degree">
+          <Card.Label labelTitle="Degree" obligatory="Required *">
             <Card.Input
               inputType="text"
               required

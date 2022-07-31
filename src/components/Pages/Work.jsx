@@ -11,7 +11,7 @@ export default class Work extends Component {
       <Card>
         <Card.Title title="Work" />
         <Card.Form handleSubmit={this.props.handleSubmit}>
-          <Card.Label labelTitle="Title">
+          <Card.Label labelTitle="Title" obligatory="Required *">
             <Card.Input
               inputType="text"
               placeholder="Software developer"
