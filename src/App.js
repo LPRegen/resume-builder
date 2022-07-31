@@ -166,9 +166,7 @@ export default class App extends Component {
               <ReactToPrint
                 copyStyles={true}
                 trigger={() => {
-                  return (
-                    <Card.ButtonPrint href="#">Print Resume</Card.ButtonPrint>
-                  );
+                  return <Card.ButtonPrint>Print Resume</Card.ButtonPrint>;
                 }}
                 content={() => this.componentRef}
               />
