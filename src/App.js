@@ -21,7 +21,7 @@ export default class App extends Component {
         phone: '',
       },
       education: [1, { degree: '', university: '', from: '', to: '' }],
-      work: [1, { title: '', company: '', from: '', to: '' }],
+      work: [1, { title: '', company: '', from: '', to: '', description: '' }],
       skills: [{ skillValue: '', placeholder: 'Team work' }],
       languages: [1, { name: '', level: '' }],
       width: window.innerWidth,
@@ -56,6 +56,7 @@ export default class App extends Component {
           from: '',
           to: '',
         };
+        if (updateStateOf === 'work') newExperience.description = '';
       } else {
         newExperience = {
           name: '',
