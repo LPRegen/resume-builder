@@ -164,6 +164,7 @@ export default class App extends Component {
             <Resume state={this.state} ref={(el) => (this.componentRef = el)} />
             <Card.Wrapper wrapperType="primary" position="center">
               <ReactToPrint
+                documentTitle={`Resume-${this.state.information.first}-${this.state.information.last}`}
                 copyStyles={true}
                 trigger={() => {
                   return <Card.ButtonPrint>Print Resume</Card.ButtonPrint>;
