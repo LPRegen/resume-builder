@@ -10,9 +10,9 @@ export default class Languages extends Component {
         {this.props.languages.map((language, index) => {
           if (index !== 0 && language.name) {
             return (
-              <p key={index}>
+              <Language key={index}>
                 {language.name}: {language.level}
-              </p>
+              </Language>
             );
           }
         })}
@@ -28,7 +28,11 @@ const Container = styled.div`
 `;
 
 const Header = styled.p`
-  font-weight: bold;
+  font-weight: 500;
   text-decoration: underline;
   font-size: 18px;
+`;
+
+const Language = styled.p`
+  font-size: 14px;
 `;
