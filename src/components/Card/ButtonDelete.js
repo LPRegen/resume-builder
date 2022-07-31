@@ -22,11 +22,11 @@ const StyledDeleteButton = styled.button`
   all: unset;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   color: ${colors.primaryText};
   background-color: ${colors.bgAddBtn};
   font-size: 14px;
-  gap: 0.3rem;
+  gap: 1rem;
   padding: 0.5rem 0.5rem;
   width: 100%;
   border-radius: 10px;
