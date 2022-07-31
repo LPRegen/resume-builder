@@ -21,7 +21,7 @@ const StyledHeader = styled.div`
   grid-template-columns: 2fr 5fr;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  padding: 2rem 0;
   background-color: #6f727c;
 `;
 
@@ -33,4 +33,5 @@ const FullName = styled.h1`
 const ProfessTitle = styled.h4`
   grid-column: 2/5;
   padding-left: 1rem;
+  font-weight: 500;
 `;

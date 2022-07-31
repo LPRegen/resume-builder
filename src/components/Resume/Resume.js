@@ -36,9 +36,8 @@ export default class Resume extends Component {
 const Container = styled.div`
   display: grid;
   grid: 1fr 5fr / 2fr 5fr;
-  margin-top: 1rem;
   width: 100%;
-  height: 85%;
+  height: 87%;
   background-color: white;
   overflow: auto;
   border-radius: 10px;
@@ -48,6 +47,6 @@ const Container = styled.div`
   }
 
   @page {
-    margin: 1rem 0;
+    padding: 1rem 0;
   }
 `;
