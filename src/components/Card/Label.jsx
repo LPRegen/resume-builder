@@ -5,7 +5,7 @@ import { colors } from '../theme';
 export default class Label extends Component {
   render() {
     return (
-      <StyledLabel>
+      <StyledLabel title={this.props.obligatory || this.props.labelTitle}>
         {this.props.labelTitle}
         {this.props.children}
       </StyledLabel>
