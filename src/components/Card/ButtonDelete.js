@@ -31,9 +31,15 @@ const StyledDeleteButton = styled.button`
   width: 100%;
   border-radius: 10px;
   visibility: ${(props) => (props.display === 'true' ? 'visible' : 'hidden')};
+  border: 1px solid transparent;
 
   :hover {
     cursor: pointer;
+  }
+
+  :focus {
+    border: 1px solid #ae1d54;
+    filter: drop-shadow(0px 0px 5px rgba(174, 29, 84, 0.5));
   }
 `;
 

@@ -35,9 +35,15 @@ const StyledButton = styled.button`
   min-width: 100px;
   border-radius: 10px;
   margin-left: ${(props) => (props.primary ? 'auto' : 'none')};
+  border: 1px solid transparent;
 
   :hover {
     cursor: pointer;
+  }
+
+  :focus {
+    border: 1px solid #00bbff;
+    filter: drop-shadow(0px 0px 5px rgba(168, 196, 250, 0.5));
   }
 `;
 

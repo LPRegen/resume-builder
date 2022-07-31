@@ -36,6 +36,15 @@ const StyledButton = styled.button`
   cursor: pointer;
   min-width: 120px;
   font-size: 14px;
+  border: 1px solid transparent;
+
+  :focus {
+    border: 1px solid rgba(101, 126, 224, 1);
+  }
+
+  :hover {
+    background-color: rgba(84, 91, 105, 0.5);
+  }
 `;
 
 const IconNext = styled(MdArrowForwardIos)`
