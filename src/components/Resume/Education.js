@@ -8,7 +8,7 @@ export default class Education extends Component {
         <Header>Education</Header>
         {/* eslint-disable-next-line */}
         {this.props.education.map((education, index) => {
-          if (index !== 0) {
+          if (index !== 0 && education.title) {
             return (
               <Container key={index}>
                 <Title>{education.degree}</Title>

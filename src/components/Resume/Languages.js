@@ -8,7 +8,7 @@ export default class Languages extends Component {
         <Header>Languages</Header>
         {/* eslint-disable-next-line */}
         {this.props.languages.map((language, index) => {
-          if (index !== 0) {
+          if (index !== 0 && language.name) {
             return (
               <p key={index}>
                 {language.name}: {language.level}

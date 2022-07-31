@@ -7,9 +7,9 @@ export default class Skills extends Component {
       <Container>
         <Header>Skills</Header>
         <List>
-          {this.props.skills.map((skill, index) => (
-            <Item key={index}>{skill.skillValue}</Item>
-          ))}
+          {this.props.skills.map((skill, index) => {
+            if (skill.skillValue) <Item key={index}>{skill.skillValue}</Item>;
+          })}
         </List>
       </Container>
     );
