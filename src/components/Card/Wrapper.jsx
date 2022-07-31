@@ -25,25 +25,32 @@ const StyledDiv = styled.div`
         return '';
     }
   }};
-  margin-top: ${(props) => {
+  margin: ${(props) => {
     switch (props.wrapperType) {
       case 'primary':
-        return 'auto';
+        return 'auto 0 1rem auto';
       case 'secondary':
-        return '1.5rem';
+        return '1rem auto 0 auto';
       case 'terciary':
-        return '1rem';
+        return 'auto auto 1.5rem auto';
       default:
         return '';
     }
   }};
-  margin: auto 0 1rem auto;
   left: ${(props) => {
     switch (props.position) {
       case 'left':
         return '0px';
       case 'center':
         return '0';
+      default:
+        return '';
+    }
+  }};
+  flex-direction: ${(props) => {
+    switch (props.wrapperType) {
+      case 'terciary':
+        return 'column';
       default:
         return '';
     }
