@@ -47,12 +47,6 @@ h6 {
   flex-grow: 1;
 }
 
-@media all {
-  .page-break {
-    display: none;
-  }
-}
-
 @media print {
   html,
   body {
