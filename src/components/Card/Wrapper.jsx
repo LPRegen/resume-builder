@@ -4,10 +4,7 @@ import styled from 'styled-components';
 export default class Wrapper extends Component {
   render() {
     return (
-      <StyledDiv
-        wrapperType={this.props.wrapperType}
-        position={this.props.position}
-      >
+      <StyledDiv wrapperType={this.props.wrapperType}>
         {this.props.children}
       </StyledDiv>
     );
@@ -33,16 +30,6 @@ const StyledDiv = styled.div`
         return '1rem auto 0 auto';
       case 'terciary':
         return 'auto auto 1.5rem auto';
-      default:
-        return '';
-    }
-  }};
-  left: ${(props) => {
-    switch (props.position) {
-      case 'left':
-        return '0px';
-      case 'center':
-        return '0';
       default:
         return '';
     }
