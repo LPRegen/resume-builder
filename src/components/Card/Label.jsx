@@ -25,6 +25,10 @@ const StyledLabel = styled.label`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: 1px solid transparent;
 
+  input:invalid::-webkit-input-placeholder {
+    color: ${colors.invalidText};
+  }
+
   :focus-within {
     border: 1px solid ${colors.selected};
     filter: drop-shadow(0px 0px 10px rgba(29, 144, 245, 0.25));
