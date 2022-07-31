@@ -11,6 +11,7 @@ export default class Input extends Component {
         name={this.props.inputName}
         value={this.props.value}
         onChange={this.props.handleChange}
+        required={this.props.required}
       />
     );
   }
@@ -21,8 +22,4 @@ const StyledInput = styled.input`
   color: ${colors.primaryText};
   font-size: 1rem;
   padding-top: 0.5rem;
-
-  :invalid {
-    color: ${colors.invalidText};
-  }
 `;
