@@ -45,7 +45,7 @@ export default class Contact extends Component {
             />
           </Card.Label>
         </Card.Form>
-        <Card.Wrapper wrapperType="primary" position="center">
+        <Card.Wrapper wrapperType="primary">
           <Card.Button
             buttonType="button"
             buttonText="Information"

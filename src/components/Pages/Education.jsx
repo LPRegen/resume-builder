@@ -72,8 +72,7 @@ export default class Education extends Component {
             )}
           </Card.Wrapper>
         </Card.Wrapper>
-
-        <Card.Wrapper wrapperType={'primary'} position="center">
+        <Card.Wrapper wrapperType={'primary'}>
           <Card.Button
             buttonType="button"
             buttonText="Contact"

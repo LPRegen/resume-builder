@@ -45,7 +45,7 @@ export default class Information extends Component {
             />
           </Card.Label>
         </Card.Form>
-        <Card.Wrapper wrapperType="primary" position="center">
+        <Card.Wrapper wrapperType="primary">
           <Card.Button
             primary={'true'}
             buttonType="button"
