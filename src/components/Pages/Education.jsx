@@ -47,29 +47,32 @@ export default class Education extends Component {
             />
           </Card.Label>
         </Card.Form>
-        <Card.Wrapper wrapperType={'secondary'}>
-          <Card.ButtonDelete
-            deleteExperience={this.props.deleteExperience}
-            display={education.length > 2 ? 'true' : 'false'}
-          />
-        </Card.Wrapper>
-        <Card.Wrapper wrapperType={'secondary'}>
-          {education[0] > 1 && (
-            <Card.ButtonAdd
-              direction="previous"
-              text="Previous"
-              onClick={this.props.onClick}
+        <Card.Wrapper wrapperType="terciary">
+          <Card.Wrapper wrapperType={'secondary'}>
+            <Card.ButtonDelete
+              deleteExperience={this.props.deleteExperience}
+              display={education.length > 2 ? 'true' : 'false'}
             />
-          )}
-          {education[0] < 6 && (
-            <Card.ButtonAdd
-              primary
-              direction="next"
-              text={education[selectedExperience + 1] ? 'Next' : 'Add'}
-              onClick={this.props.onClick}
-            />
-          )}
+          </Card.Wrapper>
+          <Card.Wrapper wrapperType={'secondary'}>
+            {education[0] > 1 && (
+              <Card.ButtonAdd
+                direction="previous"
+                text="Previous"
+                onClick={this.props.onClick}
+              />
+            )}
+            {education[0] < 6 && (
+              <Card.ButtonAdd
+                primary
+                direction="next"
+                text={education[selectedExperience + 1] ? 'Next' : 'Add'}
+                onClick={this.props.onClick}
+              />
+            )}
+          </Card.Wrapper>
         </Card.Wrapper>
+
         <Card.Wrapper wrapperType={'primary'} position="center">
           <Card.Button
             buttonType="button"
