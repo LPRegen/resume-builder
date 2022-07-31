@@ -15,6 +15,7 @@ export default class Work extends Component {
               inputType="text"
               placeholder="Software developer"
               inputName="title"
+              required
               value={work[selectedExperience].title}
               handleChange={this.props.handleChange}
             />

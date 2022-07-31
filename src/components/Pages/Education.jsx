@@ -13,6 +13,7 @@ export default class Education extends Component {
           <Card.Label labelTitle="Degree">
             <Card.Input
               inputType="text"
+              required
               placeholder="Bachelor in Economics"
               inputName="degree"
               value={education[selectedExperience].degree}
