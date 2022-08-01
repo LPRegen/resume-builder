@@ -7,6 +7,7 @@ export default class Skills extends Component {
       <Container>
         <Header>Skills</Header>
         <List>
+          {/* eslint-disable-next-line */}
           {this.props.skills.map((skill, index) => {
             if (skill.skillValue) {
               return <Item key={index}>{skill.skillValue}</Item>;
