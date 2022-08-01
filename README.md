@@ -1,27 +1,33 @@
-<div id="top" >
+<div id="top" align='center'>
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
-<br/>
 ![React](https://camo.githubusercontent.com/ab4c3c731a174a63df861f7b118d6c8a6c52040a021a552628db877bd518fe84/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f72656163742d2532333230323332612e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d7265616374266c6f676f436f6c6f723d253233363144414642)
-
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
 </div>
 
 <br />
 <div align="center">
-  <a href="https://github.com/LPRegen/resume-builder">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/LPRegen">
+    <img src="https://github.com/LPRegen/resume-builder/raw/main/src/img/icon.png" alt="Logo" width="80" height="80">
   </a>
 
+<br />
+
 <h3 align="center">Resume Builder</h3>
+
+<br />
+
   <p align="center">
     Create your resume never was so easy!
     <br/>
     With this app you have to fill the required information, and at the end you will be able to download a PDF with the provided information!
     <br />
     <br />
-    <a href="https://github.com/LPRegen/resume-builder">View Demo</a>
+    <a href="https://resume-builder-lime.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/LPRegen/resume-builder/issues">Report Bug</a>
     ·
@@ -30,10 +36,12 @@
 </div>
 
 <br/>
+<br/>
 
+<div align='center'>
 <details>
   <summary>Table of Contents</summary>
-  <ol>
+  <ul>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -42,14 +50,16 @@
     </li>
     <li><a href="#roadmap">Features</a></li>
     <li><a href="#contact">Contact</a></li>
-  </ol>
+  </ul>
 </details>
+</div>
 
+<br/>
 <br/>
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/LPRegen/resume-builder/raw/main/src/img/mockup-devices.jpg)
 
 This is my first approach to React JS, and I'm amazed about its capabilities, and this is just the tip of the iceberg!
 
@@ -69,7 +79,6 @@ Below are some of the concepts I have learned with this project:
 - Understand how to handle input fields and forms in React.
 - Routing with React Router DOM.
 - Higher Order Components (HOC).
-- BEM file structure.
 - Conditional rendering.
 - Benefits of the composition model.
 
@@ -107,4 +116,4 @@ Project Link: [https://github.com/LPRegen/resume-builder](https://github.com/LPR
 [license-url]: https://github.com/LPRegen/resume-builder/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/manuel-escribano-lpregen
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: ./src/img/mockup-devices.jpg
