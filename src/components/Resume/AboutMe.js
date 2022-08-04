@@ -19,7 +19,6 @@ const Container = styled.div`
 `;
 
 const Header = styled.p`
-  text-decoration: underline;
   font-size: 18px;
   font-weight: 500;
 `;
