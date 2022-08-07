@@ -34,7 +34,6 @@ const Container = styled.div`
 `;
 
 const Header = styled.p`
-  text-decoration: underline;
   font-size: 18px;
   font-weight: 500;
 `;
@@ -42,7 +41,6 @@ const Header = styled.p`
 const Title = styled.p`
   font-size: 16px;
   font-weight: normal;
-  text-decoration: underline;
   padding-top: 1rem;
 `;
 
