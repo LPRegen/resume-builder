@@ -26,6 +26,7 @@ const StyledHeader = styled.div`
 `;
 
 const FullName = styled.h1`
+  font-weight: 800;
   grid-column: 2/5;
   padding-left: 1rem;
 `;
@@ -33,5 +34,5 @@ const FullName = styled.h1`
 const ProfessTitle = styled.h4`
   grid-column: 2/5;
   padding-left: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 `;

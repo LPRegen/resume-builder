@@ -24,6 +24,7 @@
   <p align="center">
     Create your resume never was so easy!
     <br/>
+    <br />
     With this app you have to fill the required information, and at the end you will be able to download a PDF with the provided information!
     <br />
     <br />
@@ -38,7 +39,6 @@
 <br/>
 <br/>
 
-<div align='center'>
 <details>
   <summary>Table of Contents</summary>
   <ul>
@@ -61,7 +61,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/LPRegen/resume-builder/raw/main/src/img/mockup-devices.jpg)
 
-This is my first approach to React JS, and I'm amazed about its capabilities, and this is just the tip of the iceberg!
+This is my first approach to React JS, I'm amazed about its capabilities.
 
 The purpose of this project was to learn basic concepts in React js, creating a small resume application where the user can fill the requested information and at the end a PDF file will be generated and available for download.
 
