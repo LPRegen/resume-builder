@@ -22,10 +22,10 @@
 <br />
 
   <p align="center">
-    Create your resume never was so easy!
+    Creating your resume never was so easy!
     <br/>
     <br />
-    With this app you have to fill the required information, and at the end you will be able to download a PDF with the provided information!
+    With this app, you have to fill in the required information, and at the end, you will be able to download a PDF with your information!
     <br />
     <br />
     <a href="https://resume-builder-lime.vercel.app/">View Demo</a>
